@@ -1,2 +1,2 @@
 # artist
-ArtITst is a drawing robot
+Artist is a drawing robot

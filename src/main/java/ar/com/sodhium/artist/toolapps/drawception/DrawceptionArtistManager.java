@@ -13,6 +13,7 @@ import ar.com.sodhium.images.mapping.ColorMap;
 import ar.com.sodhium.images.mapping.ColorMapsGeometryUtils;
 import ar.com.sodhium.images.mapping.GrayscaleMap;
 import ar.com.sodhium.images.mapping.ImageCalculations;
+import ar.com.sodhium.images.mapping.ThresholdUtils;
 import ar.com.sodhium.images.utils.DrawUtils;
 import ar.com.sodhium.images.utils.MagnitudeUtils;
 
@@ -34,17 +35,23 @@ public class DrawceptionArtistManager {
         int[] red = input.getRed();
         int[] green = input.getGreen();
         int[] blue = input.getBlue();
+        
+        GrayscaleMap magnitudeMap = new GrayscaleMap(width, height);
+        int[] absoulteMagnitude = MagnitudeUtils.getAbsoulteMagnitude(red, green, blue);
+        magnitudeMap.setValues(absoulteMagnitude);
 
-        ComposedRectangularZone rectanglesSet = ImageClusteringUtils.findRectanglesWithBlackContent(red, green, blue,
-                width, height);
+        ColorMap intThresholdInColors = ThresholdUtils.intThresholdInColors(absoulteMagnitude, absoulteMagnitude, absoulteMagnitude, width, height, 225 * 225 * 225);
+        
+        int[] blackRed = intThresholdInColors.getRed();
+        int[] blackGreen = intThresholdInColors.getGreen();
+        int[] blackBlue = intThresholdInColors.getBlue();
+
+        ComposedRectangularZone rectanglesSet = ImageClusteringUtils.findRectanglesWithBlackContent(blackRed, blackGreen, blackBlue, width, height);
         ArrayList<AnalizableSpace> spaces = AnalizableSpace.createSpaces(rectanglesSet);
         for (AnalizableSpace space : spaces) {
             space.createBlocks();
             space.clusterizeBlocks();
         }
-        GrayscaleMap magnitudeMap = new GrayscaleMap(width, height);
-        int[] absoulteMagnitude = MagnitudeUtils.getAbsoulteMagnitude(red, green, blue);
-        magnitudeMap.setValues(absoulteMagnitude);
 
         Collection<ComposedRectangularZone> allChildren = rectanglesSet.findAllChildren();
         for (ComposedRectangularZone rectangle : allChildren) {
