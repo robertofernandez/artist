@@ -69,6 +69,8 @@ public class RobotController {
             int currentY = centerY - (int) Math.round(getCircleY((double)i, (double)radius));
             retryMove(currentX, currentY, 20, 3);
         }
+
+        moveTo(centerX - radius, centerY);
     }
     
     public void drawOvalWithMouse(int centerX, int centerY, int radius, double relation) throws InterruptedException {
@@ -103,8 +105,20 @@ public class RobotController {
         return Math.sqrt(radius * radius - x * x);
     }
 
+    public void hitKey(int keyCode) {
+        robot.keyPress(keyCode);
+        robot.delay(50);
+        robot.keyRelease(keyCode);
+    }
+
+
     public Robot getRobot() {
         return robot;
+    }
+
+    public void leftClick() {
+        leftPress();
+        leftRelease();
     }
  
 }

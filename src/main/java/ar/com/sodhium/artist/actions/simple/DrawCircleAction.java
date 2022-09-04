@@ -21,7 +21,7 @@ public class DrawCircleAction implements ActionExecutor {
         controller.moveTo(centerX - radius, centerY);
         controller.leftPress();
         controller.drawCircleWithMouse(centerX, centerY, radius);
-        controller.moveTo(centerX - radius, centerY);
+        //controller.moveTo(centerX - radius, centerY);
         controller.leftRelease();
     }
 

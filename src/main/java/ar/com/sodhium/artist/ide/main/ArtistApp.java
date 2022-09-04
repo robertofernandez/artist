@@ -13,6 +13,7 @@ import javax.swing.border.BevelBorder;
 
 import ar.com.sodhium.artist.actions.simple.DrawCircleAction;
 import ar.com.sodhium.artist.actions.simple.DrawHorizontalOvalAction;
+import ar.com.sodhium.artist.actions.simple.DrawPinkCircleAction;
 import ar.com.sodhium.artist.actions.simple.DrawVerticalOvalAction;
 import ar.com.sodhium.artist.actions.simple.FindColorPickersAction;
 import ar.com.sodhium.artist.actions.simple.PaintCircleAction;
@@ -57,6 +58,7 @@ public class ArtistApp {
         actionsManager.addExecutor("draw_horizontal_oval", new DrawHorizontalOvalAction());
         actionsManager.addExecutor("draw_vertical_oval", new DrawVerticalOvalAction());
         actionsManager.addExecutor("find_color_pickers", new FindColorPickersAction());
+        actionsManager.addExecutor("draw_pink_circle", new DrawPinkCircleAction());
     }
 
     /**
@@ -92,14 +94,22 @@ public class ArtistApp {
             simpleDrawingsMenu.add(paintCircleItem);
         }
 
-        JMenuItem drawHorizonatalOvalItem = new SimpleActionExecuterMenuItem("Draw horizontal oval", "draw_horizontal_oval", actionsManager);
+        JMenuItem drawHorizonatalOvalItem = new SimpleActionExecuterMenuItem("Draw horizontal oval",
+                "draw_horizontal_oval", actionsManager);
         simpleDrawingsMenu.add(drawHorizonatalOvalItem);
 
-        JMenuItem drawVerticalOvalItem = new SimpleActionExecuterMenuItem("Draw vertical oval", "draw_vertical_oval", actionsManager);
+        JMenuItem drawVerticalOvalItem = new SimpleActionExecuterMenuItem("Draw vertical oval", "draw_vertical_oval",
+                actionsManager);
         simpleDrawingsMenu.add(drawVerticalOvalItem);
 
-        JMenuItem findColorPickersItem = new SimpleActionExecuterMenuItem("Find color pickers", "find_color_pickers", actionsManager);
+        JMenuItem findColorPickersItem = new SimpleActionExecuterMenuItem("Find color pickers", "find_color_pickers",
+                actionsManager);
         simpleDrawingsMenu.add(findColorPickersItem);
+
+        JMenuItem drawPinkCircleItem = new SimpleActionExecuterMenuItem("Draw pink circle", "draw_pink_circle",
+                actionsManager);
+        simpleDrawingsMenu.add(drawPinkCircleItem);
+
     }
 
 }
