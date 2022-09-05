@@ -12,6 +12,7 @@ import javax.swing.JScrollPane;
 import javax.swing.border.BevelBorder;
 
 import ar.com.sodhium.artist.actions.simple.DrawCircleAction;
+import ar.com.sodhium.artist.actions.simple.DrawGreenArcsAction;
 import ar.com.sodhium.artist.actions.simple.DrawHorizontalOvalAction;
 import ar.com.sodhium.artist.actions.simple.DrawPinkCircleAction;
 import ar.com.sodhium.artist.actions.simple.DrawVerticalOvalAction;
@@ -59,6 +60,7 @@ public class ArtistApp {
         actionsManager.addExecutor("draw_vertical_oval", new DrawVerticalOvalAction());
         actionsManager.addExecutor("find_color_pickers", new FindColorPickersAction());
         actionsManager.addExecutor("draw_pink_circle", new DrawPinkCircleAction());
+        actionsManager.addExecutor("draw_green_arcs", new DrawGreenArcsAction());
     }
 
     /**
@@ -109,6 +111,10 @@ public class ArtistApp {
         JMenuItem drawPinkCircleItem = new SimpleActionExecuterMenuItem("Draw pink circle", "draw_pink_circle",
                 actionsManager);
         simpleDrawingsMenu.add(drawPinkCircleItem);
+
+        JMenuItem drawGreenArcsItem = new SimpleActionExecuterMenuItem("Draw green arcs", "draw_green_arcs",
+                actionsManager);
+        simpleDrawingsMenu.add(drawGreenArcsItem);
 
     }
 

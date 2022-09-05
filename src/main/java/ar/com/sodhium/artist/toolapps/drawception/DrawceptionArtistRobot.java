@@ -14,7 +14,7 @@ import ar.com.sodhium.robot.RobotController;
 public class DrawceptionArtistRobot {
     private RobotController controller;
     private DrawceptionArtistManager drawceptionArtistManager;
-    
+
     private HashMap<Integer, Integer> brushSizesKeys;
 
     public DrawceptionArtistRobot() throws AWTException {
@@ -22,8 +22,8 @@ public class DrawceptionArtistRobot {
         drawceptionArtistManager = new DrawceptionArtistManager();
         initKeys();
     }
-    
-    //FUTURE check if there is a better way
+
+    // FUTURE check if there is a better way
     private void initKeys() {
         brushSizesKeys = new HashMap<>();
         brushSizesKeys.put(1, KeyEvent.VK_1);
@@ -36,13 +36,13 @@ public class DrawceptionArtistRobot {
         int keyCode = brushSizesKeys.get(size).intValue();
         controller.hitKey(keyCode);
     }
-    
+
     public void init() throws Exception {
         Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
         BufferedImage capture = controller.getRobot().createScreenCapture(screenRect);
-        
+
         ImageRepresentation representation = new ImageRepresentation(capture);
-        
+
         ColorMap screenMap = new ColorMap(representation.getImageWidth(), representation.getImageHeight());
         screenMap.setRed(representation.getRed());
         screenMap.setGreen(representation.getGreen());
@@ -51,20 +51,40 @@ public class DrawceptionArtistRobot {
         drawceptionArtistManager.init(screenMap);
     }
 
+//**
+//     Default set:
+//        #ffd700 yellow
+//        #fffdc9 light yellow
+//        #ffdab9 skin
+//        #444444 dark gray
+//        #16ff00 light green
+//        #c69c6d light brown
+//        #ec008c fucsia
+//        #0fad00 dark green
+//        #00ffff light blue
+//        #ffffff white
+//        #603913 dark brown
+//        #ff6600 orange
+//        #0247fe dark blue
+//        #8601af violet
+//        #000000 black
+//        #999999 light gray
+//        #ff0000 red
+//*
     public void pickColor(String colorCode) {
-        if(!drawceptionArtistManager.getColorPickers().isEmpty()) {
-            if(drawceptionArtistManager.getColorPickers().containsKey(colorCode)) {
+        if (!drawceptionArtistManager.getColorPickers().isEmpty()) {
+            if (drawceptionArtistManager.getColorPickers().containsKey(colorCode)) {
                 ColorPickerDefinition picker = drawceptionArtistManager.getColorPickers().get(colorCode);
                 controller.moveTo(picker.getX(), picker.getY());
                 controller.leftClick();
             } else {
-                //FIXME color not found
+                // FIXME color not found
             }
         } else {
-            //FIXME warning no picker initialized
+            // FIXME warning no picker initialized
         }
     }
-    
+
     public RobotController getController() {
         return controller;
     }

@@ -88,8 +88,6 @@ public class RobotController {
     }
     
     public void paintCircleWithMouse(int centerX, int centerY, int radius, int step) throws InterruptedException {
-//        int lastX = -1 * radius + centerX;
-//        int lastY = centerY;
         for(int i = -1 * radius ; i < radius; i+=step) {
             int currentX = centerX + i;
             int upY = centerY + (int) Math.round(getCircleY((double)i, (double)radius));
@@ -120,5 +118,30 @@ public class RobotController {
         leftPress();
         leftRelease();
     }
- 
+
+    public void drawArcWithMouse(int centerX, int centerY, int radius, int initialOffsetX, int finalOffsetX, int direction) throws InterruptedException {
+        for(int i = -1 * radius ; i < radius; i++) {
+            int currentX = centerX + i;
+            int currentY = centerY + direction * (int) Math.round(getCircleY((double)i, (double)radius));
+            if(i > finalOffsetX) {
+                return;
+            }
+            if(i >= (initialOffsetX - radius)) {
+                retryMove(currentX, currentY, 30, 4);
+                System.out.println("" + currentX + ", " + currentY);
+            }
+        }
+    }
+
+
+    //FUTURE improve and send to math lib
+    public Integer getInitialY(int centerX, int centerY, int radius, int initialOffsetX, int direction) throws InterruptedException {
+        for(int i = -1 * radius ; i < radius; i++) {
+            int currentY = centerY + direction * (int) Math.round(getCircleY((double)i, (double)radius));
+            if(i == (initialOffsetX - radius)) {
+                return currentY;
+            }
+        }
+        return centerY;
+    }
 }
