@@ -11,6 +11,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.border.BevelBorder;
 
+import ar.com.sodhium.artist.actions.simple.Draw2PointsArcAction;
 import ar.com.sodhium.artist.actions.simple.DrawCircleAction;
 import ar.com.sodhium.artist.actions.simple.DrawGhostAction;
 import ar.com.sodhium.artist.actions.simple.DrawGreenArcsAction;
@@ -64,6 +65,7 @@ public class ArtistApp {
         actionsManager.addExecutor("draw_green_arcs", new DrawGreenArcsAction());
         actionsManager.addExecutor("draw_ghost_2", new DrawGhostAction(2));
         actionsManager.addExecutor("draw_ghost_4", new DrawGhostAction(4));
+        actionsManager.addExecutor("draw_2_pounts_arc", new Draw2PointsArcAction());
     }
 
     /**
@@ -124,6 +126,9 @@ public class ArtistApp {
         
         JMenuItem drawGhostItem4 = new SimpleActionExecuterMenuItem("Draw ghost (size 4)", "draw_ghost_4", actionsManager);
         simpleDrawingsMenu.add(drawGhostItem4);
+        
+        JMenuItem draw2PointsArcItem = new SimpleActionExecuterMenuItem("Draw 2 points arc", "draw_2_pounts_arc", actionsManager);
+        simpleDrawingsMenu.add(draw2PointsArcItem);
 
     }
 

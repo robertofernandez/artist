@@ -6,13 +6,15 @@ import java.awt.Point;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
 
+import ar.com.sodhium.geometry.sequential.ArcSegment;
+
 public class RobotController {
     protected Robot robot;
-    
+
     public RobotController() throws AWTException {
         robot = new Robot();
     }
-    
+
     public void smoothMove(Integer x, Integer y, double steps, int delay, int tries) {
         Point location = MouseInfo.getPointerInfo().getLocation();
         double initialX = location.getX();
@@ -31,7 +33,7 @@ public class RobotController {
         }
         retryMove(x, y, delay, tries);
     }
-    
+
     public void retryMove(int x, int y, int delay, int tries) {
         Point pd = new Point(x, y);
         int n = 0;
@@ -40,7 +42,7 @@ public class RobotController {
             robot.delay(delay);
         }
     }
-    
+
     public void leftPress() {
         robot.delay(100);
         robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
@@ -58,47 +60,48 @@ public class RobotController {
     }
 
     public void drawCircleWithMouse(int centerX, int centerY, int radius) throws InterruptedException {
-        for(int i = -1 * radius ; i < radius; i++) {
+        for (int i = -1 * radius; i < radius; i++) {
             int currentX = centerX + i;
-            int currentY = centerY + (int) Math.round(getCircleY((double)i, (double)radius));
+            int currentY = centerY + (int) Math.round(getCircleY((double) i, (double) radius));
             retryMove(currentX, currentY, 20, 3);
         }
 
-        for(int i = radius ; i > -1 * radius; i--) {
+        for (int i = radius; i > -1 * radius; i--) {
             int currentX = centerX + i;
-            int currentY = centerY - (int) Math.round(getCircleY((double)i, (double)radius));
+            int currentY = centerY - (int) Math.round(getCircleY((double) i, (double) radius));
             retryMove(currentX, currentY, 20, 3);
         }
 
         moveTo(centerX - radius, centerY);
     }
-    
+
     public void drawOvalWithMouse(int centerX, int centerY, int radius, double relation) throws InterruptedException {
-        for(int i = -1 * radius ; i < radius; i++) {
+        for (int i = -1 * radius; i < radius; i++) {
             int currentX = centerX + i;
-            int currentY = (int) (centerY + Math.round(relation * ((int) Math.round(getCircleY((double)i, (double)radius)))));
+            int currentY = (int) (centerY
+                    + Math.round(relation * ((int) Math.round(getCircleY((double) i, (double) radius)))));
             retryMove(currentX, currentY, 20, 3);
         }
 
-        for(int i = radius ; i > -1 * radius; i--) {
+        for (int i = radius; i > -1 * radius; i--) {
             int currentX = centerX + i;
-            int currentY = (int) (centerY - Math.round(relation * ((int) Math.round(getCircleY((double)i, (double)radius)))));
+            int currentY = (int) (centerY
+                    - Math.round(relation * ((int) Math.round(getCircleY((double) i, (double) radius)))));
             retryMove(currentX, currentY, 20, 3);
         }
     }
-    
+
     public void paintCircleWithMouse(int centerX, int centerY, int radius, int step) throws InterruptedException {
-        for(int i = -1 * radius ; i < radius; i+=step) {
+        for (int i = -1 * radius; i < radius; i += step) {
             int currentX = centerX + i;
-            int upY = centerY + (int) Math.round(getCircleY((double)i, (double)radius));
-            int downY = centerY - (int) Math.round(getCircleY((double)i, (double)radius));
+            int upY = centerY + (int) Math.round(getCircleY((double) i, (double) radius));
+            int downY = centerY - (int) Math.round(getCircleY((double) i, (double) radius));
             smoothMove(currentX, upY, 10, 10, 3);
             robot.delay(20);
             smoothMove(currentX, downY, 10, 10, 3);
         }
     }
 
-    
     public Double getCircleY(Double x, Double radius) {
         return Math.sqrt(radius * radius - x * x);
     }
@@ -109,7 +112,6 @@ public class RobotController {
         robot.keyRelease(keyCode);
     }
 
-
     public Robot getRobot() {
         return robot;
     }
@@ -119,26 +121,36 @@ public class RobotController {
         leftRelease();
     }
 
-    public void drawArcWithMouse(int centerX, int centerY, int radius, int initialOffsetX, int finalOffsetX, int direction) throws InterruptedException {
-        for(int i = -1 * radius ; i < radius; i++) {
+    public void drawArcWithMouse(int centerX, int centerY, int radius, int initialOffsetX, int finalOffsetX,
+            int direction) throws InterruptedException {
+        for (int i = -1 * radius; i < radius; i++) {
             int currentX = centerX + i;
-            int currentY = centerY + direction * (int) Math.round(getCircleY((double)i, (double)radius));
-            if(i > finalOffsetX) {
+            int currentY = centerY + direction * (int) Math.round(getCircleY((double) i, (double) radius));
+            if (i > finalOffsetX) {
                 return;
             }
-            if(i >= (initialOffsetX - radius)) {
+            if (i >= (initialOffsetX - radius)) {
                 retryMove(currentX, currentY, 30, 4);
                 System.out.println("" + currentX + ", " + currentY);
             }
         }
     }
 
+    public void draw2PointsRadiusArcWithMouse(Integer initialX, Integer initialY, Integer finalX, Integer finalY,
+            Integer radius, Integer direction) throws InterruptedException {
+        ArcSegment segment = ArcSegment.fromInitialPoint(initialX, finalX, initialY, finalY, radius, direction);
+        for (Integer currentX = initialX; currentX <= finalX; currentX++) {
+            Integer currentY = segment.getY(currentX);
+            retryMove(currentX, currentY, 30, 4);
+        }
+    }
 
-    //FUTURE improve and send to math lib
-    public Integer getInitialY(int centerX, int centerY, int radius, int initialOffsetX, int direction) throws InterruptedException {
-        for(int i = -1 * radius ; i < radius; i++) {
-            int currentY = centerY + direction * (int) Math.round(getCircleY((double)i, (double)radius));
-            if(i == (initialOffsetX - radius)) {
+    // FUTURE improve and send to math lib
+    public Integer getInitialY(int centerX, int centerY, int radius, int initialOffsetX, int direction)
+            throws InterruptedException {
+        for (int i = -1 * radius; i < radius; i++) {
+            int currentY = centerY + direction * (int) Math.round(getCircleY((double) i, (double) radius));
+            if (i == (initialOffsetX - radius)) {
                 return currentY;
             }
         }

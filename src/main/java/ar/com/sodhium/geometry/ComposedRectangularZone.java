@@ -4,8 +4,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class ComposedRectangularZone extends RectangularArea {
+    @SerializedName("parent")
+    @Expose
     private ComposedRectangularZone parent;
+    @SerializedName("children")
+    @Expose
     private HashMap<String, ComposedRectangularZone> children;
 
     public ComposedRectangularZone(int x, int y, int width, int height) {

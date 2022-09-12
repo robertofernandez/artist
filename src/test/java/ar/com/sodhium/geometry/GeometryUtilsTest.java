@@ -2,6 +2,8 @@ package ar.com.sodhium.geometry;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
 
 class GeometryUtilsTest {
@@ -74,6 +76,13 @@ class GeometryUtilsTest {
     
     public String printSegment(Integer x1, Integer x2) {
         return "" + x1 + " -> " + x2;
+    }
+    
+    @Test
+    void testCircleCenterPoints() {
+        ArrayList<Double> centerPoints = GeometryUtils.getCircleCenterPoints(1D, -2D, 2D, -1D, 1D);
+        
+        System.out.println(centerPoints);
     }
 
 }

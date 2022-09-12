@@ -2,8 +2,15 @@ package ar.com.sodhium.geometry;
 
 import java.util.ArrayList;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class ComposedRectangularZonesBlock implements IntegerRectangularZone {
+    @SerializedName("components")
+    @Expose
     private ArrayList<ComposedRectangularZone> components;
+    @SerializedName("surrounding-zone")
+    @Expose
     private ComposedRectangularZone surroundingZone;
 
     public ComposedRectangularZonesBlock() {

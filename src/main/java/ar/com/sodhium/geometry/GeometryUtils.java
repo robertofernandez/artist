@@ -1,9 +1,10 @@
 package ar.com.sodhium.geometry;
 
 import java.awt.Point;
+import java.util.ArrayList;
 
 public class GeometryUtils {
-    
+
     /**
      * 
      * @param s1x1 initial x for segment 1.
@@ -25,7 +26,7 @@ public class GeometryUtils {
     }
 
     public static boolean overlapsY(IntegerRectangularZone zone1, IntegerRectangularZone zone2) {
-        return  segmentOverlap(zone1.getY(), zone1.getMaxY(), zone2.getY(), zone2.getMaxY());
+        return segmentOverlap(zone1.getY(), zone1.getMaxY(), zone2.getY(), zone2.getMaxY());
     }
 
     public static boolean contains(IntegerRectangularZone zone1, IntegerRectangularZone zone2) {
@@ -72,5 +73,44 @@ public class GeometryUtils {
         int newTargetX = zone.getX() + (int) (zone.getWidth() / 2);
         int newTargetY = zone.getY() + (int) (zone.getHeight() / 2);
         return new Point(newTargetX, newTargetY);
+    }
+
+    /**
+     * 
+     * @param x0
+     * @param y0
+     * @param x1
+     * @param y1
+     * @param radius
+     * @return
+     */
+    public static ArrayList<Double> getCircleCenterPoints(Double x0, Double y0, Double x1, Double y1, Double radius) {
+        Double n = 2 * y0 - 2 * y1;
+        Double m = qad(x1) + qad(y1) - qad(x0) - qad(y0);
+        Double p = 2 * x1 - 2 * x0;
+
+        Double h = n / p;
+        Double k = m / p;
+
+        Double a = qad(h) + 1;
+        Double b = 2 * h * k - 2 * x0 * h - 2 * y0;
+        Double c = qad(k) - 2 * x0 * k + qad(x0) + qad(y0) - qad(radius);
+
+        Double yc1 = (-1 * b + Math.sqrt(qad(b) - 4 * a * c)) / (2 * a);
+        Double yc2 = (-1 * b - Math.sqrt(qad(b) - 4 * a * c)) / (2 * a);
+
+        Double xc1 = (n * yc1 + m) / p;
+        Double xc2 = (n * yc2 + m) / p;
+
+        ArrayList<Double> output = new ArrayList<>();
+        output.add(xc1);
+        output.add(yc1);
+        output.add(xc2);
+        output.add(yc2);
+        return output;
+    }
+
+    public static Double qad(Double x) {
+        return x * x;
     }
 }
