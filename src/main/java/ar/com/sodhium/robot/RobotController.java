@@ -69,7 +69,7 @@ public class RobotController {
         for (int i = radius; i > -1 * radius; i--) {
             int currentX = centerX + i;
             int currentY = centerY - (int) Math.round(getCircleY((double) i, (double) radius));
-            retryMove(currentX, currentY, 20, 3);
+            retryMove(currentX, currentY, 8, 3);
         }
 
         moveTo(centerX - radius, centerY);
@@ -87,7 +87,7 @@ public class RobotController {
             int currentX = centerX + i;
             int currentY = (int) (centerY
                     - Math.round(relation * ((int) Math.round(getCircleY((double) i, (double) radius)))));
-            retryMove(currentX, currentY, 20, 3);
+            retryMove(currentX, currentY, 8, 3);
         }
     }
 
@@ -96,9 +96,9 @@ public class RobotController {
             int currentX = centerX + i;
             int upY = centerY + (int) Math.round(getCircleY((double) i, (double) radius));
             int downY = centerY - (int) Math.round(getCircleY((double) i, (double) radius));
-            smoothMove(currentX, upY, 10, 10, 3);
+            smoothMove(currentX, upY, 5, 8, 3);
             robot.delay(20);
-            smoothMove(currentX, downY, 10, 10, 3);
+            smoothMove(currentX, downY, 5, 8, 3);
         }
     }
 
@@ -130,7 +130,7 @@ public class RobotController {
                 return;
             }
             if (i >= (initialOffsetX - radius)) {
-                retryMove(currentX, currentY, 30, 4);
+                retryMove(currentX, currentY, 8, 4);
                 System.out.println("" + currentX + ", " + currentY);
             }
         }
@@ -141,7 +141,7 @@ public class RobotController {
         ArcSegment segment = ArcSegment.fromInitialPoint(initialX, finalX, initialY, finalY, radius, direction);
         for (Integer currentX = initialX; currentX <= finalX; currentX++) {
             Integer currentY = segment.getY(currentX);
-            retryMove(currentX, currentY, 30, 4);
+            retryMove(currentX, currentY, 8, 4);
         }
     }
 

@@ -1,7 +1,14 @@
 package ar.com.sodhium.geometry.sequential;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class LinearSegment extends Segment {
+    @SerializedName("initial-y")
+    @Expose
     private Integer initialY;
+    @SerializedName("final-y")
+    @Expose
     private Integer finalY;
 
     public LinearSegment(Integer initialX, Integer finalX, Integer initialY, Integer finalY) {

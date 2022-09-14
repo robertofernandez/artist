@@ -1,8 +1,17 @@
 package ar.com.sodhium.geometry.sequential;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public abstract class Segment {
+    @SerializedName("initial-x")
+    @Expose
     protected Integer initialX;
+    @SerializedName("final-x")
+    @Expose
     protected Integer finalX;
+    @SerializedName("traced")
+    @Expose
     protected Boolean traced;
 
     public Segment(Integer initialX, Integer finalX) {

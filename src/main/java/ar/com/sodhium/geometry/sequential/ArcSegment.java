@@ -2,12 +2,23 @@ package ar.com.sodhium.geometry.sequential;
 
 import java.util.ArrayList;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import ar.com.sodhium.geometry.GeometryUtils;
 
 public class ArcSegment extends Segment {
+    @SerializedName("radius")
+    @Expose
     private Integer radius;
+    @SerializedName("convexity")
+    @Expose
     private Integer convexity;
+    @SerializedName("center-y")
+    @Expose
     private Integer centerY;
+    @SerializedName("center-x")
+    @Expose
     private Integer centerX;
 
     public ArcSegment(Integer initialX, Integer finalX, Integer centerX, Integer centerY, Integer radius,
