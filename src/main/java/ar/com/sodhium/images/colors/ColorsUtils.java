@@ -1,21 +1,15 @@
 package ar.com.sodhium.images.colors;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map.Entry;
-
+import java.awt.Color;
 
 public class ColorsUtils {
 
     /**
      * Convert HSL values to a RGB Color.
      *
-     * @param h
-     *            Hue is specified as degrees in the range 0 - 360.
-     * @param s
-     *            Saturation is specified as a percentage in the range 1 - 100.
-     * @param l
-     *            Luminance is specified as a percentage in the range 1 - 100.
+     * @param h Hue is specified as degrees in the range 0 - 360.
+     * @param s Saturation is specified as a percentage in the range 1 - 100.
+     * @param l Luminance is specified as a percentage in the range 1 - 100.
      * @paran alpha the alpha value between 0 - 1 adapted from
      *        https://svn.codehaus.org/griffon/builders/gfxbuilder/tags/GFXBUILDER_0.2/
      *        gfxbuilder-core/src/main/com/camick/awt/HSLColor.java
@@ -73,6 +67,11 @@ public class ColorsUtils {
         String green = getTwoDigitsHex(color.getGreen());
         String blue = getTwoDigitsHex(color.getBlue());
         return red + green + blue;
+    }
+
+    public static RgbColor fromHex(String code) {
+        Color color = Color.decode(code);
+        return new RgbColor(color.getRed(), color.getGreen(), color.getBlue());
     }
 
     private static String getTwoDigitsHex(int value) {

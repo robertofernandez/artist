@@ -5,15 +5,16 @@ import java.awt.Color;
 import ar.com.sodhium.artist.ide.main.ArtistApp;
 import ar.com.sodhium.artist.ide.panels.ImagePanel;
 import ar.com.sodhium.geometry.sequential.ArcSegment;
+import ar.com.sodhium.geometry.sequential.ProportionizedArcSegment;
 import ar.com.sodhium.images.mapping.ColorMap;
 import ar.com.sodhium.java.swing.utils.functions.ActionExecutor;
 import ar.com.sodhium.java.swing.utils.functions.ParametersSet;
 
-public class Draw2PointsArcOnPanelAction implements ActionExecutor {
+public class Draw2PointsArcsOnPanelAction implements ActionExecutor {
 
     private ArtistApp app;
 
-    public Draw2PointsArcOnPanelAction(ArtistApp app) {
+    public Draw2PointsArcsOnPanelAction(ArtistApp app) {
         this.app = app;
 
     }
@@ -39,18 +40,35 @@ public class Draw2PointsArcOnPanelAction implements ActionExecutor {
                 e.printStackTrace();
             }
             
-            Integer initialX = 500;
-            Integer initialY = 300;
-            Integer finalX = 520;
-            Integer finalY = 325;
+            Integer initialX = 200;
+            Integer initialY = 200;
+            Integer finalX = 280;
+            Integer finalY = 200;
             Integer radius = 40;
             Integer direction = -1;
 
-            ArcSegment segment = ArcSegment.fromInitialPoint(initialX, finalX, initialY, finalY, radius, direction);
+//            ArcSegment segment = ArcSegment.fromInitialPoint(initialX, finalX, initialY, finalY, radius, direction);
+//            for (Integer currentX = initialX; currentX <= finalX; currentX++) {
+//                Integer currentY = segment.getY(currentX);
+//                emptyMap.setColor(currentX, currentY, new Color(100, 200, 100));
+//            }
+//            segment = ArcSegment.fromInitialPoint(initialX, finalX, initialY, finalY, radius, direction * -1);
+//            for (Integer currentX = initialX; currentX <= finalX; currentX++) {
+//                Integer currentY = segment.getY(currentX);
+//                emptyMap.setColor(currentX, currentY, new Color(100, 200, 100));
+//            }
+            
+            ProportionizedArcSegment segment = ProportionizedArcSegment.fromInitialPoint(initialX, finalX, initialY, finalY, radius, direction, 2D);
             for (Integer currentX = initialX; currentX <= finalX; currentX++) {
                 Integer currentY = segment.getY(currentX);
                 emptyMap.setColor(currentX, currentY, new Color(100, 200, 100));
             }
+            segment = ProportionizedArcSegment.fromInitialPoint(initialX, finalX, initialY, finalY, radius, direction * -1, 2D);
+            for (Integer currentX = initialX; currentX <= finalX; currentX++) {
+                Integer currentY = segment.getY(currentX);
+                emptyMap.setColor(currentX, currentY, new Color(100, 200, 100));
+            }
+
 
             
             imagePanel.setMap(emptyMap);

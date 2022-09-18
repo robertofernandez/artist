@@ -8,11 +8,19 @@ import com.google.gson.annotations.SerializedName;
 public class ComposedSequentialLine {
     @SerializedName("segments")
     @Expose
-    public ArrayList<Segment> segments;
+    private ArrayList<Segment> segments;
+
+    public ComposedSequentialLine() {
+        segments = new ArrayList<>();
+    }
+
+    public void addSegment(Segment segment) {
+        segments.add(segment);
+    }
 
     public Integer getY(Integer x) {
         for (Segment segment : segments) {
-            if(segment.containsX(x)) {
+            if (segment.containsX(x)) {
                 return segment.getY(x);
             }
         }

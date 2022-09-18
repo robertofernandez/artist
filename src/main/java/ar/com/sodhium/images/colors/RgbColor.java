@@ -135,4 +135,8 @@ public class RgbColor {
         int blueDiff = blue - anotherColor.getBlue();
         return new RgbColor(redDiff, greenDiff, blueDiff);
     }
+    
+    public String toHex() {
+        return ColorsUtils.getHex(this);
+    }
 }

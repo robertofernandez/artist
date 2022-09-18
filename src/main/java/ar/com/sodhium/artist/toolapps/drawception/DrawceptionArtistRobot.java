@@ -78,7 +78,9 @@ public class DrawceptionArtistRobot {
                 controller.moveTo(picker.getX(), picker.getY());
                 controller.leftClick();
             } else {
-                // FIXME color not found
+                ColorPickerDefinition picker = drawceptionArtistManager.getNearestColorPicker(colorCode);
+                controller.moveTo(picker.getX(), picker.getY());
+                controller.leftClick();
             }
         } else {
             // FIXME warning no picker initialized

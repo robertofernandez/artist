@@ -8,6 +8,8 @@ import java.util.HashMap;
 import ar.com.sodhium.geometry.ComposedRectangularZone;
 import ar.com.sodhium.geometry.clustering.AnalizableSpace;
 import ar.com.sodhium.images.clustering.ImageClusteringUtils;
+import ar.com.sodhium.images.colors.ColorsUtils;
+import ar.com.sodhium.images.colors.RgbColor;
 import ar.com.sodhium.images.mapping.ColorMap;
 import ar.com.sodhium.images.mapping.ColorMapsGeometryUtils;
 import ar.com.sodhium.images.mapping.GrayscaleMap;
@@ -71,6 +73,23 @@ public class DrawceptionArtistManager {
 
     public HashMap<String, ColorPickerDefinition> getColorPickers() {
         return colorPickers;
+    }
+
+    public ColorPickerDefinition getNearestColorPicker(String colorCode) {
+        RgbColor color = ColorsUtils.fromHex(colorCode);
+        ColorPickerDefinition output = null;
+        Double minDistance = null;
+
+        for (ColorPickerDefinition picker : colorPickers.values()) {
+            RgbColor currentColor = new RgbColor(picker.getColor().getRed(), picker.getColor().getGreen(), picker.getColor().getBlue());
+            Double distance = currentColor.getAbsoluteDistance(color);
+            if(minDistance == null || minDistance > distance) {
+                minDistance = distance;
+                output = picker;
+            }
+        }
+
+        return output;
     }
 
 }
