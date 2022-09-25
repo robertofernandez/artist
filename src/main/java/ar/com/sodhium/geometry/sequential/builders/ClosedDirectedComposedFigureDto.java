@@ -1,18 +1,36 @@
-package ar.com.sodhium.geometry.sequential;
+package ar.com.sodhium.geometry.sequential.builders;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 import ar.com.sodhium.geometry.Orientation;
+import ar.com.sodhium.geometry.sequential.ClosedDirectedComposedFigure;
 import ar.com.sodhium.images.colors.RgbColor;
 
-public class ClosedDirectedComposedFigure {
-    private ComposedSequentialLine higherLine;
-    private ComposedSequentialLine lowerLine;
+public class ClosedDirectedComposedFigureDto {
+    @SerializedName("higher-line")
+    @Expose
+    private ComposedSequentialLineDto higherLine;
+    @SerializedName("lower-line")
+    @Expose
+    private ComposedSequentialLineDto lowerLine;
+    @SerializedName("offset-x")
+    @Expose
     private Integer offsetX;
+    @SerializedName("offset-y")
+    @Expose
     private Integer offsetY;
+    @SerializedName("orientation")
+    @Expose
     private Orientation orientation;
+    @SerializedName("color")
+    @Expose
     private RgbColor color;
+    @SerializedName("borderColor")
+    @Expose
     private RgbColor borderColor;
 
-    public ClosedDirectedComposedFigure(ComposedSequentialLine higherLine, ComposedSequentialLine lowerLine,
+    public ClosedDirectedComposedFigureDto(ComposedSequentialLineDto higherLine, ComposedSequentialLineDto lowerLine,
             Integer offsetX, Integer offsetY, Orientation orientation, RgbColor color, RgbColor borderColor) {
         super();
         this.higherLine = higherLine;
@@ -24,11 +42,11 @@ public class ClosedDirectedComposedFigure {
         this.borderColor = borderColor;
     }
 
-    public ComposedSequentialLine getHigherLine() {
+    public ComposedSequentialLineDto getHigherLine() {
         return higherLine;
     }
 
-    public ComposedSequentialLine getLowerLine() {
+    public ComposedSequentialLineDto getLowerLine() {
         return lowerLine;
     }
 
@@ -56,11 +74,11 @@ public class ClosedDirectedComposedFigure {
         this.orientation = orientation;
     }
 
-    public void setHigherLine(ComposedSequentialLine higherLine) {
+    public void setHigherLine(ComposedSequentialLineDto higherLine) {
         this.higherLine = higherLine;
     }
 
-    public void setLowerLine(ComposedSequentialLine lowerLine) {
+    public void setLowerLine(ComposedSequentialLineDto lowerLine) {
         this.lowerLine = lowerLine;
     }
 
@@ -80,10 +98,8 @@ public class ClosedDirectedComposedFigure {
         this.borderColor = borderColor;
     }
 
-    @Override
-    public String toString() {
-        return "ClosedDirectedComposedFigure [higherLine=" + higherLine + ", lowerLine=" + lowerLine + ", offsetX="
-                + offsetX + ", offsetY=" + offsetY + ", orientation=" + orientation + ", color=" + color
-                + ", borderColor=" + borderColor + "]";
+    public ClosedDirectedComposedFigure buildFigure() {
+        return new ClosedDirectedComposedFigure(higherLine.buildLine(), lowerLine.buildLine(), offsetX, offsetY,
+                orientation, color, borderColor);
     }
 }

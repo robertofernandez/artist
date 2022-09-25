@@ -50,4 +50,10 @@ public abstract class Segment {
     public Boolean getTraced() {
         return traced;
     }
+
+    @Override
+    public String toString() {
+        return "Segment [initialX=" + initialX + ", finalX=" + finalX + ", traced=" + traced + "]";
+    }
+
 }

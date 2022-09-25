@@ -26,4 +26,9 @@ public class ComposedSequentialLine {
         }
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return "ComposedSequentialLine [segments=" + segments + "]";
+    }
 }

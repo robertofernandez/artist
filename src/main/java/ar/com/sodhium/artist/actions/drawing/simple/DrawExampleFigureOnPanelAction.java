@@ -4,10 +4,12 @@ import java.awt.Color;
 
 import ar.com.sodhium.artist.ide.main.ArtistApp;
 import ar.com.sodhium.artist.ide.panels.ImagePanel;
+import ar.com.sodhium.geometry.Orientation;
 import ar.com.sodhium.geometry.sequential.ArcSegment;
 import ar.com.sodhium.geometry.sequential.ClosedDirectedComposedFigure;
 import ar.com.sodhium.geometry.sequential.ComposedSequentialLine;
 import ar.com.sodhium.geometry.sequential.LinearSegment;
+import ar.com.sodhium.images.colors.RgbColor;
 import ar.com.sodhium.images.mapping.ColorMap;
 import ar.com.sodhium.java.swing.utils.functions.ActionExecutor;
 import ar.com.sodhium.java.swing.utils.functions.ParametersSet;
@@ -73,7 +75,9 @@ public class DrawExampleFigureOnPanelAction implements ActionExecutor {
             
             downLine.addSegment(segmentDown);
             downLine.addSegment(segmentDown2);
-            ClosedDirectedComposedFigure figure = new ClosedDirectedComposedFigure(topLine, downLine);
+            RgbColor baseColor = new RgbColor(200, 100, 100);
+            RgbColor borderColor = new RgbColor(30, 30, 30);
+            ClosedDirectedComposedFigure figure = new ClosedDirectedComposedFigure(topLine, downLine, 0, 0, Orientation.HORIZONTAL, baseColor, borderColor);
 
             for (Integer currentX = initialX; currentX <= finalX2; currentX++) {
 //                Integer topY = figure.getHigherLine().getY(currentX);

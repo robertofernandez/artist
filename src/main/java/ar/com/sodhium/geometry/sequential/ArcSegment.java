@@ -30,16 +30,18 @@ public class ArcSegment extends Segment {
         this.convexity = convexity;
     }
 
-    public static ArcSegment fromInitialPoint(Integer initialX, Integer finalX, Integer initialY, Integer finalY, Integer radius, Integer convexity) {
-        ArrayList<Double> centerPoints = GeometryUtils.getCircleCenterPoints(initialX.doubleValue(), initialY.doubleValue(), finalX.doubleValue(), finalY.doubleValue(), radius.doubleValue());
+    public static ArcSegment fromInitialPoint(Integer initialX, Integer finalX, Integer initialY, Integer finalY,
+            Integer radius, Integer convexity) {
+        ArrayList<Double> centerPoints = GeometryUtils.getCircleCenterPoints(initialX.doubleValue(),
+                initialY.doubleValue(), finalX.doubleValue(), finalY.doubleValue(), radius.doubleValue());
         Integer x0 = (int) Math.round(centerPoints.get(0));
         Integer y0 = (int) Math.round(centerPoints.get(1));
 
-        if(convexity > 0) {
+        if (convexity > 0) {
             x0 = (int) Math.round(centerPoints.get(2));
             y0 = (int) Math.round(centerPoints.get(3));
         }
-        
+
         return new ArcSegment(initialX, finalX, x0, y0, radius, convexity);
     }
 
@@ -63,4 +65,11 @@ public class ArcSegment extends Segment {
     public Integer getCenterX() {
         return centerX;
     }
+
+    @Override
+    public String toString() {
+        return "ArcSegment [radius=" + radius + ", convexity=" + convexity + ", centerY=" + centerY + ", centerX="
+                + centerX + ", initialX=" + initialX + ", finalX=" + finalX + ", traced=" + traced + "]";
+    }
+
 }

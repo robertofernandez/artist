@@ -34,19 +34,22 @@ public class ProportionizedArcSegment extends Segment {
         this.proportion = proportion;
     }
 
-    public static ProportionizedArcSegment fromInitialPoint(Integer initialX, Integer finalX, Integer initialY, Integer finalY, Integer radius, Integer convexity, Double proportion) {
+    public static ProportionizedArcSegment fromInitialPoint(Integer initialX, Integer finalX, Integer initialY,
+            Integer finalY, Integer radius, Integer convexity, Double proportion) {
         Double virtualInitialY = initialY * proportion;
         Double virtualFinalY = finalY * proportion;
-        ArrayList<Double> centerPoints = GeometryUtils.getCircleCenterPoints(initialX.doubleValue(), virtualInitialY, finalX.doubleValue(), virtualFinalY, radius.doubleValue());
+        ArrayList<Double> centerPoints = GeometryUtils.getCircleCenterPoints(initialX.doubleValue(), virtualInitialY,
+                finalX.doubleValue(), virtualFinalY, radius.doubleValue());
         Integer x0 = (int) Math.round(centerPoints.get(0));
         Integer y0 = (int) Math.round(centerPoints.get(1));
 
-        if(convexity > 0) {
+        if (convexity > 0) {
             x0 = (int) Math.round(centerPoints.get(2));
             y0 = (int) Math.round(centerPoints.get(3));
         }
 
-        return new ProportionizedArcSegment(initialX, finalX, x0, (int) Math.round(y0 / proportion), radius, convexity, proportion);
+        return new ProportionizedArcSegment(initialX, finalX, x0, (int) Math.round(y0 / proportion), radius, convexity,
+                proportion);
     }
 
     public Integer getRadius() {
@@ -69,4 +72,12 @@ public class ProportionizedArcSegment extends Segment {
     public Integer getCenterX() {
         return centerX;
     }
+
+    @Override
+    public String toString() {
+        return "ProportionizedArcSegment [radius=" + radius + ", convexity=" + convexity + ", virtualCenterY="
+                + virtualCenterY + ", centerX=" + centerX + ", proportion=" + proportion + ", initialX=" + initialX
+                + ", finalX=" + finalX + ", traced=" + traced + "]";
+    }
+
 }

@@ -30,4 +30,10 @@ public class LinearSegment extends Segment {
         return (int) Math.round(preciseY);
     }
 
+    @Override
+    public String toString() {
+        return "LinearSegment [initialY=" + initialY + ", finalY=" + finalY + ", initialX=" + initialX + ", finalX="
+                + finalX + ", traced=" + traced + "]";
+    }
+
 }
