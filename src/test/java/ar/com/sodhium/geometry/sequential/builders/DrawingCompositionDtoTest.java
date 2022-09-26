@@ -1,5 +1,6 @@
 package ar.com.sodhium.geometry.sequential.builders;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
@@ -8,7 +9,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import ar.com.sodhium.geometry.Orientation;
-import ar.com.sodhium.geometry.sequential.ClosedDirectedComposedFigure;
+import ar.com.sodhium.geometry.sequential.DrawingComposition;
 import ar.com.sodhium.images.colors.RgbColor;
 
 class DrawingCompositionDtoTest {
@@ -31,7 +32,7 @@ class DrawingCompositionDtoTest {
         segment2UpProps.put("final-y", finalYUp2.toString());
         SegmentDto segment2Up = new SegmentDto("line", initialX, finalX1, segment2UpProps);
 
-        ComposedSequentialLineDto topLine = new ComposedSequentialLineDto();
+        ComposedSequentialLineDto topLine = new ComposedSequentialLineDto(new RgbColor(10, 20, 30));
         topLine.addSegment(segment1Up);
         topLine.addSegment(segment2Up);
 
@@ -45,7 +46,7 @@ class DrawingCompositionDtoTest {
         SegmentDto segmentDown = createArc(initialX, finalX1, initialYDown, finalYDown, radius2, direction2);
         SegmentDto segmentDown2 = createArc(finalX1, finalX2, finalYDown, finalYDown2, radius3, direction1);
 
-        ComposedSequentialLineDto downLine = new ComposedSequentialLineDto();
+        ComposedSequentialLineDto downLine = new ComposedSequentialLineDto(new RgbColor(210, 20, 30));
 
         downLine.addSegment(segmentDown);
         downLine.addSegment(segmentDown2);
@@ -54,16 +55,37 @@ class DrawingCompositionDtoTest {
         ClosedDirectedComposedFigureDto figure = new ClosedDirectedComposedFigureDto(topLine, downLine, 0, 0,
                 Orientation.HORIZONTAL, baseColor, borderColor);
 
-        Gson gson = new GsonBuilder().setPrettyPrinting().setDateFormat("dd/MM/yyyy HH:mm").excludeFieldsWithoutExposeAnnotation().create();
-        String json = gson.toJson(figure);
+        Gson gson = new GsonBuilder().setPrettyPrinting().setDateFormat("dd/MM/yyyy HH:mm")
+                .excludeFieldsWithoutExposeAnnotation().create();
+//        String json = gson.toJson(figure);
+//
+//        System.out.println(json);
+//
+//        System.out.println("-------------");
+//
+//        ClosedDirectedComposedFigure figure2 = figure.buildFigure();
+//
+//        System.out.println(figure2);
+
+        DrawingCompositionDto compositionDto = new DrawingCompositionDto();
+        ArrayList<ClosedDirectedComposedFigureDto> figures = new ArrayList<>();
+        figures.add(figure);
+        ArrayList<ComposedSequentialLineDto> lines = new ArrayList<>();
+        lines.add(topLine);
+        lines.add(downLine);
+        DrawingCompositionLayerDto layer = new DrawingCompositionLayerDto(figures, lines);
+        compositionDto.getLayers().put(0, layer);
+
+        DrawingComposition drawingComposition = compositionDto.buildComposition();
+
+        String json = gson.toJson(compositionDto);
 
         System.out.println(json);
 
         System.out.println("-------------");
 
-        ClosedDirectedComposedFigure figure2 = figure.buildFigure();
+        System.out.println(drawingComposition);
 
-        System.out.println(figure2);
     }
 
     private SegmentDto createArc(Integer initialX, Integer finalX1, Integer initialYUp, Integer finalYUp,

@@ -5,12 +5,22 @@ import java.util.ArrayList;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import ar.com.sodhium.images.colors.RgbColor;
+
 public class ComposedSequentialLine {
+    @SerializedName("color")
+    @Expose
+    private RgbColor color;
     @SerializedName("segments")
     @Expose
     private ArrayList<Segment> segments;
+    @Expose(serialize = false, deserialize = false)
+    private Integer initialX;
+    @Expose(serialize = false, deserialize = false)
+    private Integer finalX;
 
-    public ComposedSequentialLine() {
+    public ComposedSequentialLine(RgbColor color) {
+        this.color = color;
         segments = new ArrayList<>();
     }
 
@@ -30,5 +40,34 @@ public class ComposedSequentialLine {
     @Override
     public String toString() {
         return "ComposedSequentialLine [segments=" + segments + "]";
+    }
+
+    public Integer getInitialX() {
+        if (initialX == null) {
+            findLimits();
+        }
+        return initialX;
+    }
+
+    public Integer getFinalX() {
+        if (finalX == null) {
+            findLimits();
+        }
+        return finalX;
+    }
+
+    private void findLimits() {
+        for (Segment segment : segments) {
+            if (initialX == null || initialX > segment.getInitialX()) {
+                initialX = segment.getInitialX();
+            }
+            if (finalX == null || finalX < segment.getFinalX()) {
+                finalX = segment.getFinalX();
+            }
+        }
+    }
+
+    public RgbColor getColor() {
+        return color;
     }
 }
