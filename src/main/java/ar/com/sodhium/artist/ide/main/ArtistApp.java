@@ -14,6 +14,7 @@ import javax.swing.JScrollPane;
 
 import ar.com.sodhium.artist.actions.drawing.simple.Draw2PointsArcOnPanelAction;
 import ar.com.sodhium.artist.actions.drawing.simple.Draw2PointsArcsOnPanelAction;
+import ar.com.sodhium.artist.actions.drawing.simple.DrawExampleCompositionOnPanelAction;
 import ar.com.sodhium.artist.actions.drawing.simple.DrawExampleFigureOnPanelAction;
 import ar.com.sodhium.artist.actions.panels.NewDrawingPanel;
 import ar.com.sodhium.artist.actions.simple.Draw2PointsArcAction;
@@ -83,6 +84,7 @@ public class ArtistApp {
         actionsManager.addExecutor("draw_2_pounts_arc_on_panel", new Draw2PointsArcOnPanelAction(this));
         actionsManager.addExecutor("draw_2_points_arcs_on_panel", new Draw2PointsArcsOnPanelAction(this));
         actionsManager.addExecutor("draw_example_figure_on_panel", new DrawExampleFigureOnPanelAction(this));
+        actionsManager.addExecutor("draw_example_composition_on_panel", new DrawExampleCompositionOnPanelAction(this));
 
     }
 
@@ -163,15 +165,23 @@ public class ArtistApp {
 
         JMenuItem newDrawing = new SimpleActionExecuterMenuItem("New drawing", "new_drawing", actionsManager);
         drawingInCanvasMenu.add(newDrawing);
-        
-        JMenuItem draw2PointsArcOnPanelItem = new SimpleActionExecuterMenuItem("Draw 2 points arc", "draw_2_pounts_arc_on_panel", actionsManager);
+
+        JMenuItem draw2PointsArcOnPanelItem = new SimpleActionExecuterMenuItem("Draw 2 points arc",
+                "draw_2_pounts_arc_on_panel", actionsManager);
         drawingInCanvasMenu.add(draw2PointsArcOnPanelItem);
 
-        JMenuItem draw2PointsArcsOnPanelItem = new SimpleActionExecuterMenuItem("Draw 2 points arcs", "draw_2_points_arcs_on_panel", actionsManager);
+        JMenuItem draw2PointsArcsOnPanelItem = new SimpleActionExecuterMenuItem("Draw 2 points arcs",
+                "draw_2_points_arcs_on_panel", actionsManager);
         drawingInCanvasMenu.add(draw2PointsArcsOnPanelItem);
 
-        JMenuItem drawExampleFigureOnPanelItem = new SimpleActionExecuterMenuItem("Draw example figure", "draw_example_figure_on_panel", actionsManager);
+        JMenuItem drawExampleFigureOnPanelItem = new SimpleActionExecuterMenuItem("Draw example figure",
+                "draw_example_figure_on_panel", actionsManager);
         drawingInCanvasMenu.add(drawExampleFigureOnPanelItem);
+
+        JMenuItem drawExampleCompositionOnPanelItem = new SimpleActionExecuterMenuItem("Draw example composition",
+                "draw_example_composition_on_panel", actionsManager);
+        drawingInCanvasMenu.add(drawExampleCompositionOnPanelItem);
+
     }
 
     public void createDrawingPanel() {
