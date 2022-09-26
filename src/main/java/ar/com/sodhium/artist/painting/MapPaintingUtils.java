@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Set;
 
+import ar.com.sodhium.geometry.Orientation;
 import ar.com.sodhium.geometry.sequential.ClosedDirectedComposedFigure;
 import ar.com.sodhium.geometry.sequential.ComposedSequentialLine;
 import ar.com.sodhium.geometry.sequential.DrawingComposition;
@@ -47,7 +48,11 @@ public class MapPaintingUtils {
             Integer downY = figure.getHigherLine().getY(currentX);
             Integer topY = figure.getLowerLine().getY(currentX);
             for (int currentY = downY; currentY <= topY; currentY++) {
-                map.setColor(currentX, currentY, figure.getColor().toAwtColor());
+                if(Orientation.HORIZONTAL.equals(figure.getOrientation())) {
+                    map.setColor(currentX + figure.getOffsetX(), currentY + figure.getOffsetY(), figure.getColor().toAwtColor());
+                } else {
+                    map.setColor(currentY + figure.getOffsetX(), currentX + figure.getOffsetY(), figure.getColor().toAwtColor());
+                }
             }
         }
     }

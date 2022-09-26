@@ -95,12 +95,17 @@ public class DrawExampleCompositionOnPanelAction implements ActionExecutor {
         downLine.addSegment(segmentDown);
         downLine.addSegment(segmentDown2);
         RgbColor baseColor = new RgbColor(200, 100, 100);
+        RgbColor baseColor2 = new RgbColor(100, 200, 100);
         RgbColor borderColor = new RgbColor(30, 30, 30);
         ClosedDirectedComposedFigureDto figure = new ClosedDirectedComposedFigureDto(topLine, downLine, 0, 0,
                 Orientation.HORIZONTAL, baseColor, borderColor);
+        figure.setOffsetX(-200);
+        ClosedDirectedComposedFigureDto figure2 = new ClosedDirectedComposedFigureDto(topLine, downLine, 0, 0,
+                Orientation.VERTICAL, baseColor2, borderColor);
         DrawingCompositionDto compositionDto = new DrawingCompositionDto();
         ArrayList<ClosedDirectedComposedFigureDto> figures = new ArrayList<>();
         figures.add(figure);
+        figures.add(figure2);
         ArrayList<ComposedSequentialLineDto> lines = new ArrayList<>();
         lines.add(topLine);
         lines.add(downLine);
