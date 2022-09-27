@@ -7,6 +7,7 @@ import java.util.Map.Entry;
 import ar.com.sodhium.images.colors.RgbColor;
 import ar.com.sodhium.images.mapping.ColorMap;
 
+//FIXME remove duplicated
 public class ColorsUtils {
 
     /**

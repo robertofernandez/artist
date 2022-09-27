@@ -6,7 +6,7 @@ import java.util.Set;
 
 import ar.com.sodhium.geometry.Orientation;
 import ar.com.sodhium.geometry.sequential.ClosedDirectedComposedFigure;
-import ar.com.sodhium.geometry.sequential.ComposedSequentialLine;
+import ar.com.sodhium.geometry.sequential.DirectedLine;
 import ar.com.sodhium.geometry.sequential.DrawingComposition;
 import ar.com.sodhium.geometry.sequential.DrawingCompositionLayer;
 import ar.com.sodhium.images.mapping.ColorMap;
@@ -27,16 +27,20 @@ public class MapPaintingUtils {
         for (ClosedDirectedComposedFigure figure : layer.getFigures()) {
             paintFigureOnMap(map, figure);
         }
-        for (ComposedSequentialLine line : layer.getLines()) {
+        for (DirectedLine line : layer.getLines()) {
             paintLineOnMap(map, line);
         }
     }
 
-    private static void paintLineOnMap(ColorMap map, ComposedSequentialLine line) {
+    private static void paintLineOnMap(ColorMap map, DirectedLine line) {
         // TODO get x form y also
-        for (Integer currentX = line.getInitialX(); currentX <= line.getFinalX(); currentX++) {
-            Integer currentY = line.getY(currentX);
-            map.setColor(currentX, currentY, line.getColor().toAwtColor());
+        for (Integer currentX = line.getLine().getInitialX(); currentX <= line.getLine().getFinalX(); currentX++) {
+            Integer currentY = line.getLine().getY(currentX);
+            if (Orientation.HORIZONTAL.equals(line.getOrientation())) {
+                map.setColor(currentX + line.getOffsetX(), currentY + line.getOffsetY(), line.getColor().toAwtColor());
+            } else {
+                map.setColor(currentY + line.getOffsetX(), currentX + line.getOffsetY(), line.getColor().toAwtColor());
+            }
         }
 
     }
@@ -48,10 +52,12 @@ public class MapPaintingUtils {
             Integer downY = figure.getHigherLine().getY(currentX);
             Integer topY = figure.getLowerLine().getY(currentX);
             for (int currentY = downY; currentY <= topY; currentY++) {
-                if(Orientation.HORIZONTAL.equals(figure.getOrientation())) {
-                    map.setColor(currentX + figure.getOffsetX(), currentY + figure.getOffsetY(), figure.getColor().toAwtColor());
+                if (Orientation.HORIZONTAL.equals(figure.getOrientation())) {
+                    map.setColor(currentX + figure.getOffsetX(), currentY + figure.getOffsetY(),
+                            figure.getColor().toAwtColor());
                 } else {
-                    map.setColor(currentY + figure.getOffsetX(), currentX + figure.getOffsetY(), figure.getColor().toAwtColor());
+                    map.setColor(currentY + figure.getOffsetX(), currentX + figure.getOffsetY(),
+                            figure.getColor().toAwtColor());
                 }
             }
         }

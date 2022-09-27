@@ -5,12 +5,7 @@ import java.util.ArrayList;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import ar.com.sodhium.images.colors.RgbColor;
-
 public class ComposedSequentialLine {
-    @SerializedName("color")
-    @Expose
-    private RgbColor color;
     @SerializedName("segments")
     @Expose
     private ArrayList<Segment> segments;
@@ -19,8 +14,7 @@ public class ComposedSequentialLine {
     @Expose(serialize = false, deserialize = false)
     private Integer finalX;
 
-    public ComposedSequentialLine(RgbColor color) {
-        this.color = color;
+    public ComposedSequentialLine() {
         segments = new ArrayList<>();
     }
 
@@ -65,9 +59,5 @@ public class ComposedSequentialLine {
                 finalX = segment.getFinalX();
             }
         }
-    }
-
-    public RgbColor getColor() {
-        return color;
     }
 }

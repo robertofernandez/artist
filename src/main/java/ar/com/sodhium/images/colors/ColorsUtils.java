@@ -2,6 +2,7 @@ package ar.com.sodhium.images.colors;
 
 import java.awt.Color;
 
+//FIXME remove duplicated
 public class ColorsUtils {
 
     /**

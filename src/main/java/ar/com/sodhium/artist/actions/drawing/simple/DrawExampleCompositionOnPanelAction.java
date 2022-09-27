@@ -11,6 +11,7 @@ import ar.com.sodhium.geometry.Orientation;
 import ar.com.sodhium.geometry.sequential.DrawingComposition;
 import ar.com.sodhium.geometry.sequential.builders.ClosedDirectedComposedFigureDto;
 import ar.com.sodhium.geometry.sequential.builders.ComposedSequentialLineDto;
+import ar.com.sodhium.geometry.sequential.builders.DirectedLineDto;
 import ar.com.sodhium.geometry.sequential.builders.DrawingCompositionDto;
 import ar.com.sodhium.geometry.sequential.builders.DrawingCompositionLayerDto;
 import ar.com.sodhium.geometry.sequential.builders.SegmentDto;
@@ -54,7 +55,7 @@ public class DrawExampleCompositionOnPanelAction implements ActionExecutor {
 
             imagePanel.setMap(emptyMap);
         } catch (Exception e) {
-            System.out.println("ERROR" + e.getMessage());
+            System.out.println("ERROR " + e.getMessage());
         }
 
     }
@@ -76,7 +77,7 @@ public class DrawExampleCompositionOnPanelAction implements ActionExecutor {
         segment2UpProps.put("final-y", finalYUp2.toString());
         SegmentDto segment2Up = new SegmentDto("line", finalX1, finalX2, segment2UpProps);
 
-        ComposedSequentialLineDto topLine = new ComposedSequentialLineDto(new RgbColor(10, 20, 30));
+        ComposedSequentialLineDto topLine = new ComposedSequentialLineDto();
         topLine.addSegment(segment1Up);
         topLine.addSegment(segment2Up);
 
@@ -90,7 +91,7 @@ public class DrawExampleCompositionOnPanelAction implements ActionExecutor {
         SegmentDto segmentDown = createArc(initialX, finalX1, initialYDown, finalYDown, radius2, direction2);
         SegmentDto segmentDown2 = createArc(finalX1, finalX2, finalYDown, finalYDown2, radius3, direction1);
 
-        ComposedSequentialLineDto downLine = new ComposedSequentialLineDto(new RgbColor(210, 20, 30));
+        ComposedSequentialLineDto downLine = new ComposedSequentialLineDto();
 
         downLine.addSegment(segmentDown);
         downLine.addSegment(segmentDown2);
@@ -106,9 +107,11 @@ public class DrawExampleCompositionOnPanelAction implements ActionExecutor {
         ArrayList<ClosedDirectedComposedFigureDto> figures = new ArrayList<>();
         figures.add(figure);
         figures.add(figure2);
-        ArrayList<ComposedSequentialLineDto> lines = new ArrayList<>();
-        lines.add(topLine);
-        lines.add(downLine);
+        ArrayList<DirectedLineDto> lines = new ArrayList<>();
+        DirectedLineDto topDirected =  new DirectedLineDto(topLine, -200, 0, Orientation.HORIZONTAL, new RgbColor(40, 90, 210));
+        DirectedLineDto downDirected =  new DirectedLineDto(downLine, -200, 0, Orientation.VERTICAL, new RgbColor(40, 240, 10));
+        lines.add(topDirected);
+        lines.add(downDirected);
         DrawingCompositionLayerDto layer = new DrawingCompositionLayerDto(figures, lines);
         compositionDto.getLayers().put(0, layer);
         return compositionDto.buildComposition();

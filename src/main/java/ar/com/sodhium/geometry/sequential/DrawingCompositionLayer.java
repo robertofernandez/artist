@@ -4,10 +4,9 @@ import java.util.ArrayList;
 
 public class DrawingCompositionLayer {
     private ArrayList<ClosedDirectedComposedFigure> figures;
-    private ArrayList<ComposedSequentialLine> lines;
+    private ArrayList<DirectedLine> lines;
 
-    public DrawingCompositionLayer(ArrayList<ClosedDirectedComposedFigure> figures,
-            ArrayList<ComposedSequentialLine> lines) {
+    public DrawingCompositionLayer(ArrayList<ClosedDirectedComposedFigure> figures, ArrayList<DirectedLine> lines) {
         super();
         this.figures = figures;
         this.lines = lines;
@@ -22,7 +21,7 @@ public class DrawingCompositionLayer {
         return figures;
     }
 
-    public ArrayList<ComposedSequentialLine> getLines() {
+    public ArrayList<DirectedLine> getLines() {
         return lines;
     }
 

@@ -57,7 +57,7 @@ public class DrawExampleFigureOnPanelAction implements ActionExecutor {
             
             LinearSegment segment2Up = new LinearSegment(finalX1, finalX2, finalYUp, finalYUp2);
             
-            ComposedSequentialLine topLine = new ComposedSequentialLine(new RgbColor(0, 0, 0));
+            ComposedSequentialLine topLine = new ComposedSequentialLine();
             topLine.addSegment(segment1Up);
             topLine.addSegment(segment2Up);
 
@@ -71,7 +71,7 @@ public class DrawExampleFigureOnPanelAction implements ActionExecutor {
             ArcSegment segmentDown = ArcSegment.fromInitialPoint(initialX, finalX1, initialYDown, finalYDown, radius2, direction2);
             ArcSegment segmentDown2 = ArcSegment.fromInitialPoint(finalX1, finalX2, finalYDown, finalYDown2, radius3, direction1);
 
-            ComposedSequentialLine downLine = new ComposedSequentialLine(new RgbColor(0, 0, 0));
+            ComposedSequentialLine downLine = new ComposedSequentialLine();
             
             downLine.addSegment(segmentDown);
             downLine.addSegment(segmentDown2);
