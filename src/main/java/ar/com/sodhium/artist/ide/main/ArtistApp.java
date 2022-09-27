@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
@@ -17,6 +19,7 @@ import ar.com.sodhium.artist.actions.drawing.simple.Draw2PointsArcsOnPanelAction
 import ar.com.sodhium.artist.actions.drawing.simple.DrawExampleCompositionOnPanelAction;
 import ar.com.sodhium.artist.actions.drawing.simple.DrawExampleFigureOnPanelAction;
 import ar.com.sodhium.artist.actions.panels.NewDrawingPanel;
+import ar.com.sodhium.artist.actions.panels.OpenDrawing;
 import ar.com.sodhium.artist.actions.simple.Draw2PointsArcAction;
 import ar.com.sodhium.artist.actions.simple.DrawCircleAction;
 import ar.com.sodhium.artist.actions.simple.DrawGhostAction;
@@ -28,8 +31,12 @@ import ar.com.sodhium.artist.actions.simple.FindColorPickersAction;
 import ar.com.sodhium.artist.actions.simple.PaintCircleAction;
 import ar.com.sodhium.artist.ide.main.menu.SimpleActionExecuterMenuItem;
 import ar.com.sodhium.artist.ide.panels.ImagePanel;
+import ar.com.sodhium.artist.painting.MapPaintingUtils;
+import ar.com.sodhium.geometry.sequential.DrawingComposition;
+import ar.com.sodhium.geometry.sequential.builders.DrawingCompositionDto;
 import ar.com.sodhium.images.mapping.ColorMap;
 import ar.com.sodhium.java.swing.utils.functions.ActionsManager;
+import ar.com.sodhium.java.utils.files.json.JsonPersistenceManager;
 import ar.com.sodhium.swing.utils.ResizableDesktopPane;
 
 public class ArtistApp {
@@ -86,6 +93,8 @@ public class ArtistApp {
         actionsManager.addExecutor("draw_example_figure_on_panel", new DrawExampleFigureOnPanelAction(this));
         actionsManager.addExecutor("draw_example_composition_on_panel", new DrawExampleCompositionOnPanelAction(this));
 
+        actionsManager.addExecutor("open_drawing", new OpenDrawing(this));
+
     }
 
     /**
@@ -117,8 +126,10 @@ public class ArtistApp {
         JMenuBar menuBar = new JMenuBar();
         mainFrame.setJMenuBar(menuBar);
 
+        JMenu fileMenu = new JMenu("File...");
         JMenu simpleDrawingWithRobotMenu = new JMenu("Simple Drawing with robot");
         JMenu drawingInCanvasMenu = new JMenu("Drawing in canvas");
+        menuBar.add(fileMenu);
         menuBar.add(simpleDrawingWithRobotMenu);
         menuBar.add(drawingInCanvasMenu);
 
@@ -182,6 +193,9 @@ public class ArtistApp {
                 "draw_example_composition_on_panel", actionsManager);
         drawingInCanvasMenu.add(drawExampleCompositionOnPanelItem);
 
+        JMenuItem openDrawingItem = new SimpleActionExecuterMenuItem("Open drawing", "open_drawing",
+                actionsManager);
+        fileMenu.add(openDrawingItem);
     }
 
     public void createDrawingPanel() {
@@ -204,8 +218,43 @@ public class ArtistApp {
         }
     }
 
+    public void createDrawingPanelFromFile(File selectedFile) {
+        try {
+            if (drawingPanel == null) {
+                drawingPanel = new ImagePanel(selectedFile.getName());
+                mainDesktopPane.add(drawingPanel);
+            } else {
+                drawingPanel.setName(selectedFile.getName());
+            }
+            JsonPersistenceManager<DrawingCompositionDto> fileManager = new JsonPersistenceManager<>();
+            DrawingCompositionDto drawingCompositionDto = fileManager.readFile(DrawingCompositionDto.class,
+                    selectedFile.getAbsolutePath());
+            DrawingComposition drawingComposition = drawingCompositionDto.buildComposition();
+            ColorMap emptyMap = new ColorMap(600, 600);
+
+            emptyMap.initializeEmpty();
+            for (int x = 0; x < 600; x++) {
+                for (int y = 0; y < 600; y++) {
+                    emptyMap.setColor(x, y, new Color(255, 255, 255));
+                }
+            }
+            MapPaintingUtils.paintCompositionOnMap(emptyMap, drawingComposition);
+            drawingPanel.setMap(emptyMap);
+        } catch (FileNotFoundException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        } catch (Exception e2) {
+            // TODO: handle exception
+            e2.printStackTrace();
+        }
+    }
+
     public ImagePanel getDrawingPanel() {
         return drawingPanel;
+    }
+
+    public JFrame getMainFrame() {
+        return mainFrame;
     }
 
 }

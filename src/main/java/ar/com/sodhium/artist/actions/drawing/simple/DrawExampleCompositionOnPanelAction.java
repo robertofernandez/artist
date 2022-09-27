@@ -4,6 +4,9 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import ar.com.sodhium.artist.ide.main.ArtistApp;
 import ar.com.sodhium.artist.ide.panels.ImagePanel;
 import ar.com.sodhium.artist.painting.MapPaintingUtils;
@@ -112,8 +115,14 @@ public class DrawExampleCompositionOnPanelAction implements ActionExecutor {
         DirectedLineDto downDirected =  new DirectedLineDto(downLine, -200, 0, Orientation.VERTICAL, new RgbColor(40, 240, 10));
         lines.add(topDirected);
         lines.add(downDirected);
-        DrawingCompositionLayerDto layer = new DrawingCompositionLayerDto(figures, lines);
+        DrawingCompositionLayerDto layer = new DrawingCompositionLayerDto(figures, lines, new ArrayList<>());
         compositionDto.getLayers().put(0, layer);
+        
+        Gson gson = new GsonBuilder().setPrettyPrinting().setDateFormat("dd/MM/yyyy HH:mm")
+                .excludeFieldsWithoutExposeAnnotation().create();
+        String json = gson.toJson(compositionDto);
+        System.out.println(json);
+
         return compositionDto.buildComposition();
     }
 

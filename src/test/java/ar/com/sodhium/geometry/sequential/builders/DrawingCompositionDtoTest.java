@@ -76,7 +76,7 @@ class DrawingCompositionDtoTest {
         lines.add(topDirected);
         lines.add(downDirected);
 
-        DrawingCompositionLayerDto layer = new DrawingCompositionLayerDto(figures, lines);
+        DrawingCompositionLayerDto layer = new DrawingCompositionLayerDto(figures, lines, new ArrayList<>());
         compositionDto.getLayers().put(0, layer);
 
         DrawingComposition drawingComposition = compositionDto.buildComposition();

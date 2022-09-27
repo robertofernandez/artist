@@ -1,0 +1,449 @@
+{
+  "layers": {
+    "0": {
+      "figures": [
+        {
+          "higher-line": {
+            "segments": [
+              {
+                "initial-x": 400,
+                "final-x": 420,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "225",
+                  "initial-y": "200",
+                  "radius": "60",
+                  "direction": "-1"
+                }
+              },
+              {
+                "initial-x": 420,
+                "final-x": 440,
+                "traced": true,
+                "segment-type": "line",
+                "properties": {
+                  "final-y": "245",
+                  "initial-y": "225"
+                }
+              }
+            ]
+          },
+          "lower-line": {
+            "segments": [
+              {
+                "initial-x": 400,
+                "final-x": 420,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "275",
+                  "initial-y": "250",
+                  "radius": "70",
+                  "direction": "1"
+                }
+              },
+              {
+                "initial-x": 420,
+                "final-x": 440,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "265",
+                  "initial-y": "275",
+                  "radius": "45",
+                  "direction": "-1"
+                }
+              }
+            ]
+          },
+          "offset-x": -200,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 200,
+            "green": 100,
+            "blue": 100
+          },
+          "borderColor": {
+            "red": 30,
+            "green": 30,
+            "blue": 30
+          }
+        },
+        {
+          "higher-line": {
+            "segments": [
+              {
+                "initial-x": 400,
+                "final-x": 420,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "225",
+                  "initial-y": "200",
+                  "radius": "60",
+                  "direction": "-1"
+                }
+              },
+              {
+                "initial-x": 420,
+                "final-x": 440,
+                "traced": true,
+                "segment-type": "line",
+                "properties": {
+                  "final-y": "245",
+                  "initial-y": "225"
+                }
+              }
+            ]
+          },
+          "lower-line": {
+            "segments": [
+              {
+                "initial-x": 400,
+                "final-x": 420,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "275",
+                  "initial-y": "250",
+                  "radius": "70",
+                  "direction": "1"
+                }
+              },
+              {
+                "initial-x": 420,
+                "final-x": 440,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "265",
+                  "initial-y": "275",
+                  "radius": "45",
+                  "direction": "-1"
+                }
+              }
+            ]
+          },
+          "offset-x": 0,
+          "offset-y": 0,
+          "orientation": "VERTICAL",
+          "color": {
+            "red": 100,
+            "green": 200,
+            "blue": 100
+          },
+          "borderColor": {
+            "red": 30,
+            "green": 30,
+            "blue": 30
+          }
+        }
+      ],
+      "lines": [
+        {
+          "line": {
+            "segments": [
+              {
+                "initial-x": 400,
+                "final-x": 420,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "225",
+                  "initial-y": "200",
+                  "radius": "60",
+                  "direction": "-1"
+                }
+              },
+              {
+                "initial-x": 420,
+                "final-x": 440,
+                "traced": true,
+                "segment-type": "line",
+                "properties": {
+                  "final-y": "245",
+                  "initial-y": "225"
+                }
+              }
+            ]
+          },
+          "offset-x": -200,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 40,
+            "green": 90,
+            "blue": 210
+          }
+        },
+        {
+          "line": {
+            "segments": [
+              {
+                "initial-x": 400,
+                "final-x": 420,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "275",
+                  "initial-y": "250",
+                  "radius": "70",
+                  "direction": "1"
+                }
+              },
+              {
+                "initial-x": 420,
+                "final-x": 440,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "265",
+                  "initial-y": "275",
+                  "radius": "45",
+                  "direction": "-1"
+                }
+              }
+            ]
+          },
+          "offset-x": -200,
+          "offset-y": 0,
+          "orientation": "VERTICAL",
+          "color": {
+            "red": 40,
+            "green": 240,
+            "blue": 10
+          }
+        }
+      ],
+      "children": [
+{
+  "layers": {
+    "0": {
+      "figures": [
+        {
+          "higher-line": {
+            "segments": [
+              {
+                "initial-x": 400,
+                "final-x": 420,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "225",
+                  "initial-y": "200",
+                  "radius": "60",
+                  "direction": "-1"
+                }
+              },
+              {
+                "initial-x": 420,
+                "final-x": 440,
+                "traced": true,
+                "segment-type": "line",
+                "properties": {
+                  "final-y": "245",
+                  "initial-y": "225"
+                }
+              }
+            ]
+          },
+          "lower-line": {
+            "segments": [
+              {
+                "initial-x": 400,
+                "final-x": 420,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "275",
+                  "initial-y": "250",
+                  "radius": "70",
+                  "direction": "1"
+                }
+              },
+              {
+                "initial-x": 420,
+                "final-x": 440,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "265",
+                  "initial-y": "275",
+                  "radius": "45",
+                  "direction": "-1"
+                }
+              }
+            ]
+          },
+          "offset-x": -100,
+          "offset-y": 20,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 200,
+            "green": 100,
+            "blue": 100
+          },
+          "borderColor": {
+            "red": 30,
+            "green": 30,
+            "blue": 30
+          }
+        },
+        {
+          "higher-line": {
+            "segments": [
+              {
+                "initial-x": 400,
+                "final-x": 420,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "225",
+                  "initial-y": "200",
+                  "radius": "60",
+                  "direction": "-1"
+                }
+              },
+              {
+                "initial-x": 420,
+                "final-x": 440,
+                "traced": true,
+                "segment-type": "line",
+                "properties": {
+                  "final-y": "245",
+                  "initial-y": "225"
+                }
+              }
+            ]
+          },
+          "lower-line": {
+            "segments": [
+              {
+                "initial-x": 400,
+                "final-x": 420,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "275",
+                  "initial-y": "250",
+                  "radius": "70",
+                  "direction": "1"
+                }
+              },
+              {
+                "initial-x": 420,
+                "final-x": 440,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "265",
+                  "initial-y": "275",
+                  "radius": "45",
+                  "direction": "-1"
+                }
+              }
+            ]
+          },
+          "offset-x": 50,
+          "offset-y": 80,
+          "orientation": "VERTICAL",
+          "color": {
+            "red": 100,
+            "green": 200,
+            "blue": 100
+          },
+          "borderColor": {
+            "red": 30,
+            "green": 30,
+            "blue": 30
+          }
+        }
+      ],
+      "lines": [
+        {
+          "line": {
+            "segments": [
+              {
+                "initial-x": 400,
+                "final-x": 420,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "225",
+                  "initial-y": "200",
+                  "radius": "60",
+                  "direction": "-1"
+                }
+              },
+              {
+                "initial-x": 420,
+                "final-x": 440,
+                "traced": true,
+                "segment-type": "line",
+                "properties": {
+                  "final-y": "245",
+                  "initial-y": "225"
+                }
+              }
+            ]
+          },
+          "offset-x": -100,
+          "offset-y": 40,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 40,
+            "green": 90,
+            "blue": 210
+          }
+        },
+        {
+          "line": {
+            "segments": [
+              {
+                "initial-x": 400,
+                "final-x": 420,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "275",
+                  "initial-y": "250",
+                  "radius": "70",
+                  "direction": "1"
+                }
+              },
+              {
+                "initial-x": 420,
+                "final-x": 440,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "265",
+                  "initial-y": "275",
+                  "radius": "45",
+                  "direction": "-1"
+                }
+              }
+            ]
+          },
+          "offset-x": -150,
+          "offset-y": 70,
+          "orientation": "VERTICAL",
+          "color": {
+            "red": 40,
+            "green": 240,
+            "blue": 10
+          }
+        }
+      ],
+      "children": []
+    }
+  }
+}
+
+	  
+	  ]
+    }
+  }
+}

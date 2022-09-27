@@ -30,6 +30,9 @@ public class MapPaintingUtils {
         for (DirectedLine line : layer.getLines()) {
             paintLineOnMap(map, line);
         }
+        for (DrawingComposition childComposition : layer.getChildren()) {
+            paintCompositionOnMap(map, childComposition);
+        }
     }
 
     private static void paintLineOnMap(ColorMap map, DirectedLine line) {
