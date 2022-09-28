@@ -102,17 +102,17 @@ public class DrawExampleCompositionOnPanelAction implements ActionExecutor {
         RgbColor baseColor2 = new RgbColor(100, 200, 100);
         RgbColor borderColor = new RgbColor(30, 30, 30);
         ClosedDirectedComposedFigureDto figure = new ClosedDirectedComposedFigureDto(topLine, downLine, 0, 0,
-                Orientation.HORIZONTAL, baseColor, borderColor);
+                Orientation.HORIZONTAL, baseColor, borderColor, false, false);
         figure.setOffsetX(-200);
         ClosedDirectedComposedFigureDto figure2 = new ClosedDirectedComposedFigureDto(topLine, downLine, 0, 0,
-                Orientation.VERTICAL, baseColor2, borderColor);
+                Orientation.VERTICAL, baseColor2, borderColor, false, false);
         DrawingCompositionDto compositionDto = new DrawingCompositionDto();
         ArrayList<ClosedDirectedComposedFigureDto> figures = new ArrayList<>();
         figures.add(figure);
         figures.add(figure2);
         ArrayList<DirectedLineDto> lines = new ArrayList<>();
-        DirectedLineDto topDirected =  new DirectedLineDto(topLine, -200, 0, Orientation.HORIZONTAL, new RgbColor(40, 90, 210));
-        DirectedLineDto downDirected =  new DirectedLineDto(downLine, -200, 0, Orientation.VERTICAL, new RgbColor(40, 240, 10));
+        DirectedLineDto topDirected =  new DirectedLineDto(topLine, -200, 0, Orientation.HORIZONTAL, new RgbColor(40, 90, 210), false, false);
+        DirectedLineDto downDirected =  new DirectedLineDto(downLine, -200, 0, Orientation.VERTICAL, new RgbColor(40, 240, 10), false, false);
         lines.add(topDirected);
         lines.add(downDirected);
         DrawingCompositionLayerDto layer = new DrawingCompositionLayerDto(figures, lines, new ArrayList<>());

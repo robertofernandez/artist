@@ -23,15 +23,23 @@ public class DirectedLineDto {
     @SerializedName("color")
     @Expose
     private RgbColor color;
+    @SerializedName("mirror-horizontal")
+    @Expose
+    private Boolean mirrorHorizontal;
+    @SerializedName("mirror-vertical")
+    @Expose
+    private Boolean mirrorVertical;
 
     public DirectedLineDto(ComposedSequentialLineDto line, Integer offsetX, Integer offsetY, Orientation orientation,
-            RgbColor color) {
+            RgbColor color, Boolean mirrorHorizontal, Boolean mirrorVertical) {
         super();
         this.line = line;
         this.offsetX = offsetX;
         this.offsetY = offsetY;
         this.orientation = orientation;
         this.color = color;
+        this.mirrorHorizontal = mirrorHorizontal;
+        this.mirrorVertical = mirrorVertical;
     }
 
     public ComposedSequentialLineDto getHigherLine() {
@@ -74,14 +82,16 @@ public class DirectedLineDto {
         this.color = color;
     }
     
-    public DirectedLine buildDirectedLine() {
-        return new DirectedLine(line.buildLine(), offsetX, offsetY, orientation, color);
+    public Boolean getMirrorHorizontal() {
+        return mirrorHorizontal;
+    }
+    
+    public Boolean getMirrorVertical() {
+        return mirrorVertical;
     }
 
-    @Override
-    public String toString() {
-        return "DirectedLine [line=" + line + ", offsetX=" + offsetX + ", offsetY=" + offsetY + ", orientation="
-                + orientation + ", color=" + color + "]";
+    public DirectedLine buildDirectedLine() {
+        return new DirectedLine(line.buildLine(), offsetX, offsetY, orientation, color, mirrorHorizontal, mirrorVertical);
     }
 
 }

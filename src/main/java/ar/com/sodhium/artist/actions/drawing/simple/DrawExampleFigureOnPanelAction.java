@@ -53,10 +53,11 @@ public class DrawExampleFigureOnPanelAction implements ActionExecutor {
             Integer radius1 = 60;
             Integer direction1 = -1;
 
-            ArcSegment segment1Up = ArcSegment.fromInitialPoint(initialX, finalX1, initialYUp, finalYUp, radius1, direction1);
-            
+            ArcSegment segment1Up = ArcSegment.fromInitialPoint(initialX, finalX1, initialYUp, finalYUp, radius1,
+                    direction1);
+
             LinearSegment segment2Up = new LinearSegment(finalX1, finalX2, finalYUp, finalYUp2);
-            
+
             ComposedSequentialLine topLine = new ComposedSequentialLine();
             topLine.addSegment(segment1Up);
             topLine.addSegment(segment2Up);
@@ -68,16 +69,19 @@ public class DrawExampleFigureOnPanelAction implements ActionExecutor {
             Integer radius3 = 45;
             Integer direction2 = 1;
 
-            ArcSegment segmentDown = ArcSegment.fromInitialPoint(initialX, finalX1, initialYDown, finalYDown, radius2, direction2);
-            ArcSegment segmentDown2 = ArcSegment.fromInitialPoint(finalX1, finalX2, finalYDown, finalYDown2, radius3, direction1);
+            ArcSegment segmentDown = ArcSegment.fromInitialPoint(initialX, finalX1, initialYDown, finalYDown, radius2,
+                    direction2);
+            ArcSegment segmentDown2 = ArcSegment.fromInitialPoint(finalX1, finalX2, finalYDown, finalYDown2, radius3,
+                    direction1);
 
             ComposedSequentialLine downLine = new ComposedSequentialLine();
-            
+
             downLine.addSegment(segmentDown);
             downLine.addSegment(segmentDown2);
             RgbColor baseColor = new RgbColor(200, 100, 100);
             RgbColor borderColor = new RgbColor(30, 30, 30);
-            ClosedDirectedComposedFigure figure = new ClosedDirectedComposedFigure(topLine, downLine, 0, 0, Orientation.HORIZONTAL, baseColor, borderColor);
+            ClosedDirectedComposedFigure figure = new ClosedDirectedComposedFigure(topLine, downLine, 0, 0,
+                    Orientation.HORIZONTAL, baseColor, borderColor, false, false);
 
             for (Integer currentX = initialX; currentX <= finalX2; currentX++) {
 //                Integer topY = figure.getHigherLine().getY(currentX);
@@ -85,12 +89,11 @@ public class DrawExampleFigureOnPanelAction implements ActionExecutor {
                 Integer downY = figure.getHigherLine().getY(currentX);
                 Integer topY = figure.getLowerLine().getY(currentX);
 
-                for(int currentY = downY; currentY <= topY; currentY ++) {
+                for (int currentY = downY; currentY <= topY; currentY++) {
                     emptyMap.setColor(currentX, currentY, new Color(200, 100, 100));
                 }
             }
 
-            
             imagePanel.setMap(emptyMap);
         } catch (Exception e) {
             System.out.println("ERROR" + e.getMessage());

@@ -11,9 +11,12 @@ public class ClosedDirectedComposedFigure {
     private Orientation orientation;
     private RgbColor color;
     private RgbColor borderColor;
+    private Boolean mirrorHorizontal;
+    private Boolean mirrorVertical;
 
     public ClosedDirectedComposedFigure(ComposedSequentialLine higherLine, ComposedSequentialLine lowerLine,
-            Integer offsetX, Integer offsetY, Orientation orientation, RgbColor color, RgbColor borderColor) {
+            Integer offsetX, Integer offsetY, Orientation orientation, RgbColor color, RgbColor borderColor,
+            Boolean mirrorHorizontal, Boolean mirrorVertical) {
         super();
         this.higherLine = higherLine;
         this.lowerLine = lowerLine;
@@ -22,6 +25,8 @@ public class ClosedDirectedComposedFigure {
         this.orientation = orientation;
         this.color = color;
         this.borderColor = borderColor;
+        this.mirrorHorizontal = mirrorHorizontal;
+        this.mirrorVertical = mirrorVertical;
     }
 
     public ComposedSequentialLine getHigherLine() {
@@ -80,10 +85,33 @@ public class ClosedDirectedComposedFigure {
         this.borderColor = borderColor;
     }
 
+    public Boolean getMirrorHorizontal() {
+        if (mirrorHorizontal == null) {
+            return false;
+        }
+        return mirrorHorizontal;
+    }
+
+    public Boolean getMirrorVertical() {
+        if (mirrorVertical == null) {
+            return false;
+        }
+        return mirrorVertical;
+    }
+
+    public void setMirrorHorizontal(Boolean mirrorHorizontal) {
+        this.mirrorHorizontal = mirrorHorizontal;
+    }
+
+    public void setMirrorVertical(Boolean mirrorVertical) {
+        this.mirrorVertical = mirrorVertical;
+    }
+
     @Override
     public String toString() {
         return "ClosedDirectedComposedFigure [higherLine=" + higherLine + ", lowerLine=" + lowerLine + ", offsetX="
                 + offsetX + ", offsetY=" + offsetY + ", orientation=" + orientation + ", color=" + color
-                + ", borderColor=" + borderColor + "]";
+                + ", borderColor=" + borderColor + ", mirrorHorizontal=" + mirrorHorizontal + ", mirrorVertical="
+                + mirrorVertical + "]";
     }
 }

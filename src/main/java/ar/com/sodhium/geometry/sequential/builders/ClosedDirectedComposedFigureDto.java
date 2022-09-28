@@ -29,9 +29,16 @@ public class ClosedDirectedComposedFigureDto {
     @SerializedName("borderColor")
     @Expose
     private RgbColor borderColor;
+    @SerializedName("mirror-horizontal")
+    @Expose
+    private Boolean mirrorHorizontal;
+    @SerializedName("mirror-vertical")
+    @Expose
+    private Boolean mirrorVertical;
 
     public ClosedDirectedComposedFigureDto(ComposedSequentialLineDto higherLine, ComposedSequentialLineDto lowerLine,
-            Integer offsetX, Integer offsetY, Orientation orientation, RgbColor color, RgbColor borderColor) {
+            Integer offsetX, Integer offsetY, Orientation orientation, RgbColor color, RgbColor borderColor,
+            Boolean mirrorHorizontal, Boolean mirrorVertical) {
         super();
         this.higherLine = higherLine;
         this.lowerLine = lowerLine;
@@ -40,6 +47,8 @@ public class ClosedDirectedComposedFigureDto {
         this.orientation = orientation;
         this.color = color;
         this.borderColor = borderColor;
+        this.mirrorHorizontal = mirrorHorizontal;
+        this.mirrorVertical = mirrorVertical;
     }
 
     public ComposedSequentialLineDto getHigherLine() {
@@ -100,6 +109,6 @@ public class ClosedDirectedComposedFigureDto {
 
     public ClosedDirectedComposedFigure buildFigure() {
         return new ClosedDirectedComposedFigure(higherLine.buildLine(), lowerLine.buildLine(), offsetX, offsetY,
-                orientation, color, borderColor);
+                orientation, color, borderColor, mirrorHorizontal, mirrorVertical);
     }
 }

@@ -9,15 +9,19 @@ public class DirectedLine {
     private Integer offsetY;
     private Orientation orientation;
     private RgbColor color;
+    private Boolean mirrorHorizontal;
+    private Boolean mirrorVertical;
 
     public DirectedLine(ComposedSequentialLine higherLine, Integer offsetX, Integer offsetY, Orientation orientation,
-            RgbColor color) {
+            RgbColor color, Boolean mirrorHorizontal, Boolean mirrorVertical) {
         super();
         this.line = higherLine;
         this.offsetX = offsetX;
         this.offsetY = offsetY;
         this.orientation = orientation;
         this.color = color;
+        this.mirrorHorizontal = mirrorHorizontal;
+        this.mirrorVertical = mirrorVertical;
     }
 
     public ComposedSequentialLine getLine() {
@@ -60,10 +64,25 @@ public class DirectedLine {
         this.color = color;
     }
 
+    public Boolean getMirrorHorizontal() {
+        if (mirrorHorizontal == null) {
+            return false;
+        }
+        return mirrorHorizontal;
+    }
+
+    public Boolean getMirrorVertical() {
+        if (mirrorVertical == null) {
+            return false;
+        }
+        return mirrorVertical;
+    }
+
     @Override
     public String toString() {
         return "DirectedLine [line=" + line + ", offsetX=" + offsetX + ", offsetY=" + offsetY + ", orientation="
-                + orientation + ", color=" + color + "]";
+                + orientation + ", color=" + color + ", mirrorHorizontal=" + mirrorHorizontal + ", mirrorVertical="
+                + mirrorVertical + "]";
     }
 
 }

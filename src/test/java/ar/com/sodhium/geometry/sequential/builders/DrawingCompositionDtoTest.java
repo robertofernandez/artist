@@ -53,7 +53,7 @@ class DrawingCompositionDtoTest {
         RgbColor baseColor = new RgbColor(200, 100, 100);
         RgbColor borderColor = new RgbColor(30, 30, 30);
         ClosedDirectedComposedFigureDto figure = new ClosedDirectedComposedFigureDto(topLine, downLine, 0, 0,
-                Orientation.HORIZONTAL, baseColor, borderColor);
+                Orientation.HORIZONTAL, baseColor, borderColor, false, false);
 
         Gson gson = new GsonBuilder().setPrettyPrinting().setDateFormat("dd/MM/yyyy HH:mm")
                 .excludeFieldsWithoutExposeAnnotation().create();
@@ -70,8 +70,8 @@ class DrawingCompositionDtoTest {
         DrawingCompositionDto compositionDto = new DrawingCompositionDto();
         ArrayList<ClosedDirectedComposedFigureDto> figures = new ArrayList<>();
         figures.add(figure);
-        DirectedLineDto topDirected =  new DirectedLineDto(topLine, 0, 0, Orientation.HORIZONTAL, new RgbColor(40, 90, 210));
-        DirectedLineDto downDirected =  new DirectedLineDto(downLine, 0, 0, Orientation.VERTICAL, new RgbColor(40, 240, 10));
+        DirectedLineDto topDirected =  new DirectedLineDto(topLine, 0, 0, Orientation.HORIZONTAL, new RgbColor(40, 90, 210), false, false);
+        DirectedLineDto downDirected =  new DirectedLineDto(downLine, 0, 0, Orientation.VERTICAL, new RgbColor(40, 240, 10), false, false);
         ArrayList<DirectedLineDto> lines = new ArrayList<>();
         lines.add(topDirected);
         lines.add(downDirected);

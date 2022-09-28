@@ -38,7 +38,11 @@ public class MapPaintingUtils {
     private static void paintLineOnMap(ColorMap map, DirectedLine line) {
         // TODO get x form y also
         for (Integer currentX = line.getLine().getInitialX(); currentX <= line.getLine().getFinalX(); currentX++) {
-            Integer currentY = line.getLine().getY(currentX);
+            Integer figuredX = currentX;
+            if(line.getMirrorHorizontal()) {
+                figuredX = line.getLine().getFinalX() + line.getLine().getInitialX() - currentX;
+            }
+            Integer currentY = line.getLine().getY(figuredX);
             if (Orientation.HORIZONTAL.equals(line.getOrientation())) {
                 map.setColor(currentX + line.getOffsetX(), currentY + line.getOffsetY(), line.getColor().toAwtColor());
             } else {
@@ -52,8 +56,12 @@ public class MapPaintingUtils {
         for (Integer currentX = figure.getHigherLine().getInitialX(); currentX <= figure.getHigherLine()
                 .getFinalX(); currentX++) {
             // TODO check why
-            Integer downY = figure.getHigherLine().getY(currentX);
-            Integer topY = figure.getLowerLine().getY(currentX);
+            Integer figuredX = currentX;
+            if(figure.getMirrorHorizontal()) {
+                figuredX = figure.getHigherLine().getFinalX() + figure.getHigherLine().getInitialX() - currentX;
+            }
+            Integer downY = figure.getHigherLine().getY(figuredX);
+            Integer topY = figure.getLowerLine().getY(figuredX);
             for (int currentY = downY; currentY <= topY; currentY++) {
                 if (Orientation.HORIZONTAL.equals(figure.getOrientation())) {
                     map.setColor(currentX + figure.getOffsetX(), currentY + figure.getOffsetY(),
