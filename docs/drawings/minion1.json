@@ -1,0 +1,564 @@
+{
+  "layers": {
+    "0": {
+      "figures": [
+        {
+          "higher-line": {
+            "segments": [
+              {
+                "initial-x": 0,
+                "final-x": 360,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "180",
+                  "initial-y": "180",
+                  "radius": "180",
+                  "direction": "-1"
+                }
+              }
+            ]
+          },
+          "lower-line": {
+            "segments": [
+              {
+                "initial-x": 0,
+                "final-x": 360,
+                "traced": true,
+                "segment-type": "line",
+                "properties": {
+                  "final-y": "490",
+                  "initial-y": "490"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 255,
+            "green": 218,
+            "blue": 185
+          },
+          "borderColor": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        }
+      ],
+      "children": [	  
+	  ]
+    },
+    "5": {
+      "figures": [
+        {
+          "higher-line": {
+            "segments": [
+              {
+                "initial-x": 136,
+                "final-x": 222,
+                "traced": true,
+                "segment-type": "proportionized-arc",
+                "properties": {
+                  "final-y": "179",
+                  "initial-y": "179",
+                  "radius": "43",
+                  "direction": "-1",
+				  "proportion": "0.8"
+                }
+              }
+            ]
+          },
+          "lower-line": {
+            "segments": [
+              {
+                "initial-x": 136,
+                "final-x": 222,
+                "traced": true,
+                "segment-type": "proportionized-arc",
+                "properties": {
+                  "final-y": "179",
+                  "initial-y": "179",
+                  "radius": "43",
+                  "direction": "1",
+				  "proportion": "0.8"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 2,
+            "green": 71,
+            "blue": 254
+          },
+          "borderColor": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        }
+      ],
+      "children": [	  
+	  ]
+    },
+    "6": {
+      "figures": [
+        {
+          "higher-line": {
+            "segments": [
+              {
+                "initial-x": 144,
+                "final-x": 214,
+                "traced": true,
+                "segment-type": "proportionized-arc",
+                "properties": {
+                  "final-y": "210",
+                  "initial-y": "210",
+                  "radius": "43",
+                  "direction": "-1",
+				  "proportion": "0.75"
+                }
+              }
+            ]
+          },
+          "lower-line": {
+            "segments": [
+              {
+                "initial-x": 144,
+                "final-x": 214,
+                "traced": true,
+                "segment-type": "proportionized-arc",
+                "properties": {
+                  "final-y": "210",
+                  "initial-y": "210",
+                  "radius": "43",
+                  "direction": "1",
+				  "proportion": "0.75"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 0,
+            "green": 255,
+            "blue": 255
+          },
+          "borderColor": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        }
+      ],
+      "children": [	  
+	  ]
+    },
+    "7": {
+      "figures": [
+        {
+          "higher-line": {
+            "segments": [
+              {
+                "initial-x": 162,
+                "final-x": 200,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "180",
+                  "initial-y": "180",
+                  "radius": "19",
+                  "direction": "-1"
+                }
+              }
+            ]
+          },
+          "lower-line": {
+            "segments": [
+              {
+                "initial-x": 162,
+                "final-x": 200,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "180",
+                  "initial-y": "180",
+                  "radius": "19",
+                  "direction": "1"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          },
+          "borderColor": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        }
+      ],
+      "children": [	  
+	  ]
+    },
+    "8": {
+      "figures": [
+        {
+          "higher-line": {
+            "segments": [
+              {
+                "initial-x": 142,
+                "final-x": 176,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "160",
+                  "initial-y": "160",
+                  "radius": "17",
+                  "direction": "-1"
+                }
+              }
+            ]
+          },
+          "lower-line": {
+            "segments": [
+              {
+                "initial-x": 142,
+                "final-x": 176,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "160",
+                  "initial-y": "160",
+                  "radius": "17",
+                  "direction": "1"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 255,
+            "green": 255,
+            "blue": 255
+          },
+          "borderColor": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        },
+        {
+          "higher-line": {
+            "segments": [
+              {
+                "initial-x": 183,
+                "final-x": 213,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "207",
+                  "initial-y": "207",
+                  "radius": "15",
+                  "direction": "-1"
+                }
+              }
+            ]
+          },
+          "lower-line": {
+            "segments": [
+              {
+                "initial-x": 183,
+                "final-x": 213,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "207",
+                  "initial-y": "207",
+                  "radius": "15",
+                  "direction": "1"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 255,
+            "green": 255,
+            "blue": 255
+          },
+          "borderColor": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        }
+      ],
+      "children": [	  
+	  ]
+    },
+    "9": {
+      "figures": [
+        {
+          "higher-line": {
+            "segments": [
+              {
+                "initial-x": 136,
+                "final-x": 224,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "396",
+                  "initial-y": "396",
+                  "radius": "218",
+                  "direction": "1"
+                }
+              }
+            ]
+          },
+          "lower-line": {
+            "segments": [
+              {
+                "initial-x": 136,
+                "final-x": 224,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "396",
+                  "initial-y": "396",
+                  "radius": "100",
+                  "direction": "1"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          },
+          "borderColor": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        }
+      ],
+      "children": [	  
+	  ]
+    },
+    "3": {
+      "figures": [
+        {
+          "higher-line": {
+            "segments": [
+              {
+                "initial-x": 104,
+                "final-x": 256,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "180",
+                  "initial-y": "180",
+                  "radius": "76",
+                  "direction": "-1"
+                }
+              }
+            ]
+          },
+          "lower-line": {
+            "segments": [
+              {
+                "initial-x": 104,
+                "final-x": 256,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "180",
+                  "initial-y": "180",
+                  "radius": "76",
+                  "direction": "1"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 255,
+            "green": 255,
+            "blue": 255
+          },
+          "borderColor": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        }
+      ],
+      "children": [	  
+	  ]
+    },
+    "10": {
+      "figures": [
+        {
+          "lower-line": {
+            "segments": [
+			  {
+                "initial-x": 78,
+                "final-x": 104,
+                "traced": false,
+                "segment-type": "line",
+                "properties": {
+                     "final-y": "180",
+                     "initial-y": "180"
+				   }
+              },
+              {
+                "initial-x": 104,
+                "final-x": 256,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "180",
+                  "initial-y": "180",
+                  "radius": "76",
+                  "direction": "-1"
+                }
+              },
+			  {
+                "initial-x": 256,
+                "final-x": 282,
+                "traced": false,
+                "segment-type": "line",
+                "properties": {
+                     "final-y": "180",
+                     "initial-y": "180"
+				   }
+              }
+            ]
+          },
+          "higher-line": {
+            "segments": [
+              {
+                "initial-x": 78,
+                "final-x": 282,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "180",
+                  "initial-y": "180",
+                  "radius": "102",
+                  "direction": "-1"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 153,
+            "green": 153,
+            "blue": 153
+          },
+          "borderColor": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        },
+        {
+          "higher-line": {
+            "segments": [
+			  {
+                "initial-x": 78,
+                "final-x": 104,
+                "traced": false,
+                "segment-type": "line",
+                "properties": {
+                     "final-y": "180",
+                     "initial-y": "180"
+				   }
+              },
+              {
+                "initial-x": 104,
+                "final-x": 256,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "180",
+                  "initial-y": "180",
+                  "radius": "76",
+                  "direction": "1"
+                }
+              },
+			  {
+                "initial-x": 256,
+                "final-x": 282,
+                "traced": false,
+                "segment-type": "line",
+                "properties": {
+                     "final-y": "180",
+                     "initial-y": "180"
+				   }
+              }
+            ]
+          },
+          "lower-line": {
+            "segments": [
+              {
+                "initial-x": 78,
+                "final-x": 282,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "180",
+                  "initial-y": "180",
+                  "radius": "102",
+                  "direction": "1"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 153,
+            "green": 153,
+            "blue": 153
+          },
+          "borderColor": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        }
+      ],
+      "children": [	  
+	  ]
+    }
+  }
+}
