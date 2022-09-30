@@ -1,0 +1,564 @@
+{
+  "layers": {
+    "0": {
+      "lines": [
+        {
+          "line": {
+            "segments": [
+              {
+                "initial-x": 170,
+                "final-x": 500,
+                "traced": true,
+                "segment-type": "line",
+                "properties": {
+                  "final-y": "0",
+                  "initial-y": "0"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "VERTICAL",
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        },
+        {
+          "line": {
+            "segments": [
+              {
+                "initial-x": 170,
+                "final-x": 500,
+                "traced": true,
+                "segment-type": "line",
+                "properties": {
+                  "final-y": "0",
+                  "initial-y": "0"
+                }
+              }
+            ]
+          },
+          "offset-x": 460,
+          "offset-y": 0,
+          "orientation": "VERTICAL",
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        },
+        {
+          "line": {
+            "segments": [
+              {
+                "initial-x": 0,
+                "final-x": 360,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "180",
+                  "initial-y": "180",
+                  "radius": "180",
+                  "direction": "-1"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        },
+        {
+          "line": {
+            "segments": [
+			  {
+                "initial-x": 78,
+                "final-x": 282,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "180",
+                  "initial-y": "180",
+                  "radius": "102",
+                  "direction": "-1"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        },
+        {
+          "line": {
+            "segments": [
+              {
+                "initial-x": 78,
+                "final-x": 282,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "180",
+                  "initial-y": "180",
+                  "radius": "102",
+                  "direction": "1"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        }
+      ],
+      "children": [	  
+	  ]
+    },
+    "5": {
+      "lines": [
+        {
+          "line": {
+            "segments": [
+              {
+                "initial-x": 136,
+                "final-x": 222,
+                "traced": true,
+                "segment-type": "proportionized-arc",
+                "properties": {
+                  "final-y": "179",
+                  "initial-y": "179",
+                  "radius": "43",
+                  "direction": "-1",
+				  "proportion": "0.8"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        },
+        {
+          "line": {
+            "segments": [
+              {
+                "initial-x": 136,
+                "final-x": 222,
+                "traced": true,
+                "segment-type": "proportionized-arc",
+                "properties": {
+                  "final-y": "179",
+                  "initial-y": "179",
+                  "radius": "43",
+                  "direction": "1",
+				  "proportion": "0.8"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        }
+      ],
+      "children": [	  
+	  ]
+    },
+    "3": {
+      "lines": [
+        {
+          "line": {
+            "segments": [
+              {
+                "initial-x": 104,
+                "final-x": 256,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "180",
+                  "initial-y": "180",
+                  "radius": "76",
+                  "direction": "-1"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        },
+		{
+          "line": {
+            "segments": [
+              {
+                "initial-x": 104,
+                "final-x": 256,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "180",
+                  "initial-y": "180",
+                  "radius": "76",
+                  "direction": "1"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        }
+      ],
+      "children": [	  
+	  ]
+    },
+    "10": {
+      "lines": [
+        {
+          "line": {
+            "segments": [
+              {
+                "initial-x": 104,
+                "final-x": 256,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "180",
+                  "initial-y": "180",
+                  "radius": "76",
+                  "direction": "-1"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        },
+        {
+          "line": {
+            "segments": [
+              {
+                "initial-x": 104,
+                "final-x": 256,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "180",
+                  "initial-y": "180",
+                  "radius": "76",
+                  "direction": "1"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        }
+      ],
+      "children": [	  
+	  ]
+    },
+    "11": {
+      "lines": [
+        {
+          "line": {
+            "segments": [
+              {
+                "initial-x": 64,
+                "final-x": 78,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "170",
+                  "initial-y": "170",
+                  "radius": "7",
+                  "direction": "-1"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        },
+        {
+          "line": {
+            "segments": [
+              {
+                "initial-x": 64,
+                "final-x": 78,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "190",
+                  "initial-y": "190",
+                  "radius": "7",
+                  "direction": "1"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        },
+        {
+          "line": {
+            "segments": [
+              {
+                "initial-x": 64,
+                "final-x": 78,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "170",
+                  "initial-y": "170",
+                  "radius": "7",
+                  "direction": "-1"
+                }
+              }
+            ]
+          },
+          "lower-line": {
+            "segments": [
+              {
+                "initial-x": 64,
+                "final-x": 78,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "190",
+                  "initial-y": "190",
+                  "radius": "7",
+                  "direction": "1"
+                }
+              }
+            ]
+          },
+          "offset-x": 318,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        },
+        {
+          "line": {
+            "segments": [
+              {
+                "initial-x": 0,
+                "final-x": 64,
+                "traced": true,
+                "segment-type": "line",
+                "properties": {
+                  "final-y": "170",
+                  "initial-y": "170"
+                }
+              }
+            ]
+          },
+          "lower-line": {
+            "segments": [
+              {
+                "initial-x": 0,
+                "final-x": 64,
+                "traced": true,
+                "segment-type": "line",
+                "properties": {
+                  "final-y": "190",
+                  "initial-y": "190"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        },
+        {
+          "line": {
+            "segments": [
+              {
+                "initial-x": 0,
+                "final-x": 64,
+                "traced": true,
+                "segment-type": "line",
+                "properties": {
+                  "final-y": "170",
+                  "initial-y": "170"
+                }
+              }
+            ]
+          },
+          "lower-line": {
+            "segments": [
+              {
+                "initial-x": 0,
+                "final-x": 64,
+                "traced": true,
+                "segment-type": "line",
+                "properties": {
+                  "final-y": "190",
+                  "initial-y": "190"
+                }
+              }
+            ]
+          },
+          "offset-x": 396,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        },
+        {
+          "line": {
+            "segments": [
+              {
+                "initial-x": 64,
+                "final-x": 78,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "190",
+                  "initial-y": "190",
+                  "radius": "7",
+                  "direction": "1"
+                }
+              }
+            ]
+          },
+          "offset-x": 318,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        },
+        {
+          "line": {
+            "segments": [
+              {
+                "initial-x": 0,
+                "final-x": 64,
+                "traced": true,
+                "segment-type": "line",
+                "properties": {
+                  "final-y": "190",
+                  "initial-y": "190"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        },
+        {
+          "line": {
+            "segments": [
+              {
+                "initial-x": 0,
+                "final-x": 64,
+                "traced": true,
+                "segment-type": "line",
+                "properties": {
+                  "final-y": "190",
+                  "initial-y": "190"
+                }
+              }
+            ]
+          },
+          "offset-x": 396,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        }
+		
+      ],
+      "children": [	  
+	  ]
+    }
+	
+  }
+}
