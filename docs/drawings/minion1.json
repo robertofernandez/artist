@@ -559,6 +559,193 @@
       ],
       "children": [	  
 	  ]
+    },
+    "11": {
+      "figures": [
+        {
+          "higher-line": {
+            "segments": [
+              {
+                "initial-x": 64,
+                "final-x": 78,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "170",
+                  "initial-y": "170",
+                  "radius": "7",
+                  "direction": "-1"
+                }
+              }
+            ]
+          },
+          "lower-line": {
+            "segments": [
+              {
+                "initial-x": 64,
+                "final-x": 78,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "190",
+                  "initial-y": "190",
+                  "radius": "7",
+                  "direction": "1"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 153,
+            "green": 153,
+            "blue": 153
+          },
+          "borderColor": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        },
+        {
+          "higher-line": {
+            "segments": [
+              {
+                "initial-x": 64,
+                "final-x": 78,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "170",
+                  "initial-y": "170",
+                  "radius": "7",
+                  "direction": "-1"
+                }
+              }
+            ]
+          },
+          "lower-line": {
+            "segments": [
+              {
+                "initial-x": 64,
+                "final-x": 78,
+                "traced": true,
+                "segment-type": "arc",
+                "properties": {
+                  "final-y": "190",
+                  "initial-y": "190",
+                  "radius": "7",
+                  "direction": "1"
+                }
+              }
+            ]
+          },
+          "offset-x": 318,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 153,
+            "green": 153,
+            "blue": 153
+          },
+          "borderColor": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        },
+        {
+          "higher-line": {
+            "segments": [
+              {
+                "initial-x": 0,
+                "final-x": 64,
+                "traced": true,
+                "segment-type": "line",
+                "properties": {
+                  "final-y": "170",
+                  "initial-y": "170"
+                }
+              }
+            ]
+          },
+          "lower-line": {
+            "segments": [
+              {
+                "initial-x": 0,
+                "final-x": 64,
+                "traced": true,
+                "segment-type": "line",
+                "properties": {
+                  "final-y": "190",
+                  "initial-y": "190"
+                }
+              }
+            ]
+          },
+          "offset-x": 100,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 153,
+            "green": 153,
+            "blue": 153
+          },
+          "borderColor": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        },
+        {
+          "higher-line": {
+            "segments": [
+              {
+                "initial-x": 0,
+                "final-x": 64,
+                "traced": true,
+                "segment-type": "line",
+                "properties": {
+                  "final-y": "170",
+                  "initial-y": "170"
+                }
+              }
+            ]
+          },
+          "lower-line": {
+            "segments": [
+              {
+                "initial-x": 0,
+                "final-x": 64,
+                "traced": true,
+                "segment-type": "line",
+                "properties": {
+                  "final-y": "190",
+                  "initial-y": "190"
+                }
+              }
+            ]
+          },
+          "offset-x": 396,
+          "offset-y": 0,
+          "orientation": "HORIZONTAL",
+          "color": {
+            "red": 153,
+            "green": 153,
+            "blue": 153
+          },
+          "borderColor": {
+            "red": 0,
+            "green": 0,
+            "blue": 0
+          }
+        }
+      ],
+      "children": [	  
+	  ]
     }
+	
   }
 }
