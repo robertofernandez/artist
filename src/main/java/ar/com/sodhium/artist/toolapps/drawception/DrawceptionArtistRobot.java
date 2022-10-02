@@ -7,6 +7,8 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 
+import ar.com.sodhium.images.colors.ColorsUtils;
+import ar.com.sodhium.images.colors.RgbColor;
 import ar.com.sodhium.images.mapping.ColorMap;
 import ar.com.sodhium.images.representation.ImageRepresentation;
 import ar.com.sodhium.robot.RobotController;
@@ -14,8 +16,8 @@ import ar.com.sodhium.robot.RobotController;
 public class DrawceptionArtistRobot {
     private RobotController controller;
     private DrawceptionArtistManager drawceptionArtistManager;
-
     private HashMap<Integer, Integer> brushSizesKeys;
+    private String currentColorCode;
 
     public DrawceptionArtistRobot() throws AWTException {
         controller = new RobotController();
@@ -72,23 +74,30 @@ public class DrawceptionArtistRobot {
 //        #ff0000 red
 //*
     public void pickColor(String colorCode) {
-        if (!drawceptionArtistManager.getColorPickers().isEmpty()) {
-            if (drawceptionArtistManager.getColorPickers().containsKey(colorCode)) {
-                ColorPickerDefinition picker = drawceptionArtistManager.getColorPickers().get(colorCode);
-                controller.moveTo(picker.getX(), picker.getY());
-                controller.leftClick();
+        if (currentColorCode == null || !currentColorCode.equals(colorCode)) {
+            if (!drawceptionArtistManager.getColorPickers().isEmpty()) {
+                currentColorCode = colorCode;
+                if (drawceptionArtistManager.getColorPickers().containsKey(colorCode)) {
+                    ColorPickerDefinition picker = drawceptionArtistManager.getColorPickers().get(colorCode);
+                    controller.moveTo(picker.getX(), picker.getY());
+                    controller.leftClick();
+                } else {
+                    ColorPickerDefinition picker = drawceptionArtistManager.getNearestColorPicker(colorCode);
+                    controller.moveTo(picker.getX(), picker.getY());
+                    controller.leftClick();
+                }
             } else {
-                ColorPickerDefinition picker = drawceptionArtistManager.getNearestColorPicker(colorCode);
-                controller.moveTo(picker.getX(), picker.getY());
-                controller.leftClick();
+                // FIXME warning no picker initialized
             }
-        } else {
-            // FIXME warning no picker initialized
         }
     }
 
     public RobotController getController() {
         return controller;
+    }
+
+    public void pickColor(RgbColor color) {
+        pickColor("#" + ColorsUtils.getHex(color));
     }
 
 }

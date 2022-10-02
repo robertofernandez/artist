@@ -6,13 +6,28 @@ import java.awt.Point;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
 
+import ar.com.sodhium.geometry.GeometryUtils;
 import ar.com.sodhium.geometry.sequential.ArcSegment;
 
 public class RobotController {
     protected Robot robot;
+    private double currentSpeed;
+    private int fixedDelayBetweenSteps;
+    private int fixedDelayBetweenSinglePixelAdvance;
 
     public RobotController() throws AWTException {
         robot = new Robot();
+        currentSpeed = 16;
+        fixedDelayBetweenSteps = 20;
+        fixedDelayBetweenSinglePixelAdvance = 20;
+    }
+
+    public void setCurrentSpeed(double currentSpeed) {
+        this.currentSpeed = currentSpeed;
+    }
+
+    private double getSteps(Double distance) {
+        return distance / currentSpeed;
     }
 
     public void smoothMove(Integer x, Integer y, double steps, int delay, int tries) {
@@ -55,8 +70,16 @@ public class RobotController {
         robot.delay(100);
     }
 
-    public void moveTo(int initialX, int initialY) {
-        smoothMove(initialX, initialY, 20, 20, 4);
+    public void moveTo(int finalX, int finalY) {
+        smoothMove(finalX, finalY, 20, 20, 4);
+    }
+
+    public void moveWithCurrentSpeedTo(int finalX, int finalY) {
+        Point location = MouseInfo.getPointerInfo().getLocation();
+        double initialX = location.getX();
+        double initialY = location.getY();
+        smoothMove(finalX, finalY, getSteps(GeometryUtils.getDistance(initialX, initialY, finalX, finalY)),
+                fixedDelayBetweenSteps, 4);
     }
 
     public void drawCircleWithMouse(int centerX, int centerY, int radius) throws InterruptedException {
@@ -155,5 +178,17 @@ public class RobotController {
             }
         }
         return centerY;
+    }
+
+    public void singleMove(int x, int y) {
+        retryMove(x, y, fixedDelayBetweenSinglePixelAdvance, 3);
+    }
+
+    public void setFixedDelayBetweenSinglePixelAdvance(int fixedDelayBetweenSinglePixelAdvance) {
+        this.fixedDelayBetweenSinglePixelAdvance = fixedDelayBetweenSinglePixelAdvance;
+    }
+
+    public void setFixedDelayBetweenSteps(int fixedDelayBetweenSteps) {
+        this.fixedDelayBetweenSteps = fixedDelayBetweenSteps;
     }
 }

@@ -1,0 +1,162 @@
+package ar.com.sodhium.artist.painting;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.awt.AWTException;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import ar.com.sodhium.artist.toolapps.drawception.DrawceptionArtistRobot;
+import ar.com.sodhium.geometry.Orientation;
+import ar.com.sodhium.geometry.sequential.DrawingComposition;
+import ar.com.sodhium.geometry.sequential.builders.ClosedDirectedComposedFigureDto;
+import ar.com.sodhium.geometry.sequential.builders.ComposedSequentialLineDto;
+import ar.com.sodhium.geometry.sequential.builders.DirectedLineDto;
+import ar.com.sodhium.geometry.sequential.builders.DrawingCompositionDto;
+import ar.com.sodhium.geometry.sequential.builders.DrawingCompositionLayerDto;
+import ar.com.sodhium.geometry.sequential.builders.SegmentDto;
+import ar.com.sodhium.images.colors.RgbColor;
+
+class DrawceptionPaintingUtilsTest {
+
+    private DirectedLineDto topDirected;
+    private DrawceptionArtistRobot robot;
+    private DirectedLineDto downDirected;
+
+    @BeforeAll
+    static void setUpBeforeClass() throws Exception {
+    }
+
+    @AfterAll
+    static void tearDownAfterClass() throws Exception {
+    }
+
+    @BeforeEach
+    void setUp() throws Exception {
+        initElements();
+    }
+
+    @AfterEach
+    void tearDown() throws Exception {
+    }
+    
+    @Test
+    void testPaintComposition() {
+        fail("Not yet implemented");
+    }
+
+    @Test
+    void testPaintLine() throws Exception {
+        robot.getController().getRobot().delay(3000);
+        robot.init();
+        DrawceptionPaintingUtils.paintLine(robot, topDirected.buildDirectedLine());
+        robot.getController().getRobot().delay(1000);
+        DrawceptionPaintingUtils.paintLine(robot, downDirected.buildDirectedLine());
+    }
+
+    @Test
+    void testPaintFigure() {
+        fail("Not yet implemented");
+    }
+    
+    void initElements() throws AWTException {
+        robot = new DrawceptionArtistRobot();
+        
+        Integer initialX = 400;
+        Integer finalX1 = 420;
+        Integer finalX2 = 440;
+        Integer initialYUp = 200;
+        Integer finalYUp = 225;
+        Integer finalYUp2 = 245;
+        Integer radius1 = 60;
+        Integer direction1 = -1;
+
+        SegmentDto segment1Up = createArc(initialX, finalX1, initialYUp, finalYUp, radius1, direction1);
+
+        HashMap<String, String> segment2UpProps = new HashMap<>();
+        segment2UpProps.put("initial-y", finalYUp.toString());
+        segment2UpProps.put("final-y", finalYUp2.toString());
+        SegmentDto segment2Up = new SegmentDto("line", initialX, finalX1, segment2UpProps);
+
+        ComposedSequentialLineDto topLine = new ComposedSequentialLineDto();
+        topLine.addSegment(segment1Up);
+        topLine.addSegment(segment2Up);
+
+        Integer initialYDown = 250;
+        Integer finalYDown = 275;
+        Integer finalYDown2 = 265;
+        Integer radius2 = 70;
+        Integer radius3 = 45;
+        Integer direction2 = 1;
+
+        SegmentDto segmentDown = createArc(initialX, finalX1, initialYDown, finalYDown, radius2, direction2);
+        SegmentDto segmentDown2 = createArc(finalX1, finalX2, finalYDown, finalYDown2, radius3, direction1);
+
+        ComposedSequentialLineDto downLine = new ComposedSequentialLineDto();
+
+        downLine.addSegment(segmentDown);
+        downLine.addSegment(segmentDown2);
+        RgbColor baseColor = new RgbColor(200, 100, 100);
+        RgbColor borderColor = new RgbColor(30, 30, 30);
+        ClosedDirectedComposedFigureDto figure = new ClosedDirectedComposedFigureDto(topLine, downLine, 0, 0,
+                Orientation.HORIZONTAL, baseColor, borderColor, false, false);
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().setDateFormat("dd/MM/yyyy HH:mm")
+                .excludeFieldsWithoutExposeAnnotation().create();
+//        String json = gson.toJson(figure);
+//
+//        System.out.println(json);
+//
+//        System.out.println("-------------");
+//
+//        ClosedDirectedComposedFigure figure2 = figure.buildFigure();
+//
+//        System.out.println(figure2);
+
+        DrawingCompositionDto compositionDto = new DrawingCompositionDto();
+        ArrayList<ClosedDirectedComposedFigureDto> figures = new ArrayList<>();
+        figures.add(figure);
+        topDirected = new DirectedLineDto(topLine, 0, 0, Orientation.HORIZONTAL, new RgbColor(40, 90, 210), false, false);
+        downDirected = new DirectedLineDto(downLine, 0, 0, Orientation.VERTICAL, new RgbColor(40, 240, 10), false, false);
+        ArrayList<DirectedLineDto> lines = new ArrayList<>();
+        lines.add(topDirected);
+        lines.add(downDirected);
+
+        DrawingCompositionLayerDto layer = new DrawingCompositionLayerDto(figures, lines, new ArrayList<>());
+        compositionDto.getLayers().put(0, layer);
+
+        DrawingComposition drawingComposition = compositionDto.buildComposition();
+
+        String json = gson.toJson(compositionDto);
+
+        System.out.println(json);
+
+        System.out.println("-------------");
+
+        System.out.println(drawingComposition);
+
+    }
+    
+    private SegmentDto createArc(Integer initialX, Integer finalX1, Integer initialYUp, Integer finalYUp,
+            Integer radius1, Integer direction1) {
+        HashMap<String, String> segment1UpProps = new HashMap<>();
+        segment1UpProps.put("initial-y", initialYUp.toString());
+        segment1UpProps.put("final-y", finalYUp.toString());
+        segment1UpProps.put("radius", radius1.toString());
+        segment1UpProps.put("direction", direction1.toString());
+        SegmentDto segment1Up = new SegmentDto("arc", initialX, finalX1, segment1UpProps);
+        return segment1Up;
+    }
+
+
+
+}

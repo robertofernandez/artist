@@ -68,6 +68,11 @@ public class GeometryUtils {
         double difY = y1 - y2;
         return difX * difX + difY * difY;
     }
+    
+    public static Double getDistance(double x1, double y1, double x2, double y2) {
+        return Math.sqrt(getCuadraticDistance(x1, y1, x2, y2));
+    }
+
 
     public static Point getCenter(IntegerRectangularZone zone) {
         int newTargetX = zone.getX() + (int) (zone.getWidth() / 2);
